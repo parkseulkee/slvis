@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬비스 — AI 개인 비서 프로젝트</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <style>
+    .reveal { font-size: 22px; }
+    .reveal h1 { font-size: 1.6em; text-transform: none; }
+    .reveal h2 { font-size: 1.2em; text-transform: none; }
+    .reveal h3 { text-transform: none; }
+    .reveal section { text-align: left; }
+    .reveal .center { text-align: center; }
+    .reveal table { font-size: 0.85em; margin: 0 auto; }
+    .reveal li { margin-bottom: 0.4em; font-size: 0.9em; }
+    .reveal code { color: #d63384; }
+    .reveal pre code { color: #333; }
+    .reveal .subtitle { font-size: 0.6em; color: #999; }
+    .reveal .highlight { color: #0969da; }
+    .reveal .emoji { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 타이틀 -->
+      <section class="center">
+        <img src="slvis-logo.svg" width="100" style="margin-bottom: 0.3em;">
+        <h1>SLVIS</h1>
+        <p>Obsidian + AI로 만드는 개인 비서</p>
+        <p class="subtitle">by 박슬기 · 2026.03</p>
+      </section>
+
+      <!-- 왜 만들었나 -->
+      <section>
+        <h2>왜 만들었나</h2>
+        <ul>
+          <li>육아 중 기록할 것이 너무 많다</li>
+          <li>일정, 수유, SNS 글감, 투자, 아티클… 흩어진 정보</li>
+          <li>AI가 내 기록을 읽고, 정리하고, 연결해주면?</li>
+          <li><strong>대화는 휘발되지만, 기록은 남는다</strong></li>
+        </ul>
+      </section>
+
+      <!-- 핵심 컨셉 -->
+      <section>
+        <h2>핵심 컨셉</h2>
+        <ul>
+          <li><span class="highlight">AI 도구에 종속되지 않는다</span> — 도구는 바뀌어도 기록은 Obsidian에 남는다</li>
+          <li><span class="highlight">함께 성장하는 비서</span> — 처음부터 완벽하지 않다. 피드백으로 진화한다</li>
+          <li><span class="highlight">기록 중심</span> — 모든 지식, 선호, 회고를 Obsidian에 저장</li>
+        </ul>
+      </section>
+
+      <!-- 기술 구조 -->
+      <section>
+        <h2>기술 구조</h2>
+        <pre><code>슬비스 (Claude Code)
+├── CLAUDE.md         ← 행동 규칙
+├── Obsidian Vault    ← 지식 베이스 (두뇌)
+│   └── Obsidian CLI  ← 읽기/쓰기 도구
+├── gcalcli           ← Google 캘린더
+└── gh CLI            ← GitHub</code></pre>
+      </section>
+
+      <!-- Obsidian Vault -->
+      <section>
+        <h2>Vault 구조</h2>
+        <table>
+          <tr><th>폴더</th><th>용도</th></tr>
+          <tr><td>Daily</td><td>일일 노트 (일정/할일/뉴스/기록)</td></tr>
+          <tr><td>육아</td><td>겨울이 성장 기록, 수유</td></tr>
+          <tr><td>SNS</td><td>블로그/인스타 글감</td></tr>
+          <tr><td>투자</td><td>ETF 분석, 투자 메모</td></tr>
+          <tr><td>아티클</td><td>읽을거리 추천, 요약</td></tr>
+          <tr><td>슬비스</td><td>프로젝트 기록, 운영 가이드, 회고</td></tr>
+        </table>
+      </section>
+
+      <!-- 슬비스 폴더 -->
+      <section>
+        <h2>슬비스 폴더</h2>
+        <p>AI 도구가 바뀌어도 유지되는 지식</p>
+        <ul>
+          <li><strong>사용자 프로필</strong> — 내가 어떤 사람인지</li>
+          <li><strong>운영 가이드</strong> — 내가 선호하는 방식</li>
+          <li><strong>프로젝트 정보</strong> — 슬비스의 구조와 원칙</li>
+          <li><strong>회고</strong> — 슬비스의 실수와 개선 기록</li>
+        </ul>
+      </section>
+
+      <!-- Skill 시스템 + 예시 -->
+      <section>
+        <h2>Skill: /daily</h2>
+        <div style="display: flex; gap: 1.5em; align-items: flex-start;">
+          <div style="flex: 1;">
+            <p>매일 아침 한 번의 명령으로:</p>
+            <ol>
+              <li>오늘 일일 노트 + Google 캘린더 일정 확인</li>
+              <li>긱뉴스에서 AI/기술 뉴스 큐레이션</li>
+              <li>경제/정치 주요 뉴스 큐레이션</li>
+              <li>결과를 일일 노트에 자동 저장</li>
+            </ol>
+            <p class="subtitle">다른 skill은 필요에 따라 추가 예정</p>
+          </div>
+          <div style="flex: 1; background: #f8f9fa; border-radius: 8px; padding: 0.6em 0.8em; font-size: 0.75em; line-height: 1.5;">
+            <p style="color:#999; margin-bottom:0.3em;">실행 결과 예시</p>
+            <p><strong>📅 일정</strong><br>
+            &nbsp;&nbsp;❤️ 가족 | 출산 휴가 (진행 중)</p>
+            <p><strong>📰 AI/기술</strong><br>
+            &nbsp;&nbsp;1. <a href="https://news.hada.io/topic?id=27461" style="color:#0969da;">AI 에이전트 워크플로우 3가지 패턴</a><br>
+            &nbsp;&nbsp;2. <a href="https://news.hada.io/topic?id=27459" style="color:#0969da;">OpenAI 에이전트 구축 실용 가이드</a><br>
+            &nbsp;&nbsp;3. <a href="https://news.hada.io/topic?id=27458" style="color:#0969da;">Claude 인터랙티브 시각 자료 생성</a></p>
+            <p><strong>🏛️ 경제/정치</strong><br>
+            &nbsp;&nbsp;1. <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148960757" style="color:#0969da;">석유 최고가격제 시행</a><br>
+            &nbsp;&nbsp;2. <a href="https://www.youthdaily.co.kr/news/article.html?no=215119" style="color:#0969da;">3월 상순 수출 역대 최대</a><br>
+            &nbsp;&nbsp;3. <a href="https://biz.heraldcorp.com/article/10693536" style="color:#0969da;">대통령 지지율 66%</a></p>
+            <p style="color:#999;">→ 일일 노트에 자동 저장</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 기록 원칙 -->
+      <section>
+        <h2>기록 원칙</h2>
+        <table>
+          <tr><th>저장소</th><th>용도</th></tr>
+          <tr><td>Obsidian vault</td><td>모든 지식 · 기록 · 사용자 선호</td></tr>
+          <tr><td>AI 도구 내부</td><td>현재 도구의 동작 설정만 (최소한)</td></tr>
+        </table>
+        <br>
+        <p><strong>원칙:</strong> AI 도구는 언제든 바뀔 수 있다.<br>중요한 기록은 반드시 Obsidian에 남긴다.</p>
+      </section>
+
+      <!-- 사용 예시 -->
+      <section>
+        <h2>사용 예시</h2>
+        <ul>
+          <li><span class="emoji">📝</span> "오늘 겨울이 수유 기록해줘" → 육아 노트에 저장</li>
+          <li><span class="emoji">📰</span> <code>/daily</code> → 일정 + 뉴스 브리핑</li>
+          <li><span class="emoji">💡</span> "이거 SNS에 올릴만하지 않아?" → SNS 글감 생성</li>
+          <li><span class="emoji">📅</span> "다음주 일정 알려줘" → gcalcli로 조회</li>
+        </ul>
+      </section>
+
+      <!-- 앞으로 -->
+      <section>
+        <h2>앞으로</h2>
+        <ul>
+          <li>더 많은 skill 추가 (/task, /article, /review ...)</li>
+          <li>수면교육 시작 시 수면 기록 기능</li>
+          <li>SNS 글감 자동 추출</li>
+          <li>투자 포트폴리오 추적</li>
+          <li>슬비스와 함께 성장하는 과정을 기록하고 공유</li>
+        </ul>
+      </section>
+
+      <!-- 마무리 -->
+      <section class="center">
+        <h2>슬비스는 Day 1</h2>
+        <p>완벽하지 않아도 괜찮다.<br>함께 성장하면 된다.</p>
+        <br>
+        <p class="subtitle">github.com/parkseulkee/slvis</p>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'slide'
+    });
+  </script>
+</body>
+</html>
