@@ -74,12 +74,6 @@ gcalcli search "검색어"
 ### /idea — 프로젝트 아이디에이션
 소크라테스식 문답으로 아이디어를 정제하고, Obsidian `프로젝트/` 폴더에 저장한다.
 
-### /sync-interests — 블로그 관심사 반영
-새로 저장된 아티클만 블로그 interests 페이지에 추가하고 배포한다.
-
-### 자동 워크플로우
-- **아티클 → 블로그 연동**: 아티클을 Obsidian에 새로 저장하면, 해당 아티클만 `/sync-interests`로 블로그에 추가 반영한다 (사용자 확인 불필요)
-
 ---
 
 ## GitHub Pages 블로그
@@ -88,6 +82,12 @@ gcalcli search "검색어"
 - **스택**: Astro + Tailwind CSS
 - **컨셉**: 슬비스가 슬기님을 소개하는 블로그 & 포트폴리오
 - **작업 경로**: git clone은 항상 `/tmp` 하위에서 수행
+
+### 블로그 코드 작업 플로우
+1. **코드 수정 후** → `npm run build` → `npx serve dist -p 4322 &`로 로컬 서버 실행
+2. **브라우저 확인** → Chrome MCP로 http://localhost:4322 접속하여 변경사항 직접 확인
+3. **확인 완료 후** → 커밋 & `git push origin main`
+4. **푸시 후** → 로컬 serve 프로세스 종료 (`pkill -f "serve dist"`)
 
 ---
 
