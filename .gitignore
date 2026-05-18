@@ -1,0 +1,20 @@
+# Obsidian vault notes
+Daily/
+SNS/
+Study/
+Templates/
+레퍼런스/
+슬비스/
+아티클/
+육아/
+투자/
+프로젝트/
+환영합니다!.md
+.obsidian/
+
+# Sub-projects (separate git repos or large deps)
+blog/
+codemom/node_modules/
+
+# macOS
+.DS_Store
