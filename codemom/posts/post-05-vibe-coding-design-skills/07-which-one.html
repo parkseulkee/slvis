@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>07 · Which one first? — 선택 기준</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 72px 72px;
+      }
+
+      .title-block {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 140px;
+        z-index: 5;
+      }
+      .title-block .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pg-dark-fg-muted);
+        margin-bottom: 16px;
+      }
+      .title-block .eyebrow b {
+        color: var(--pg-amber);
+      }
+      .title-block h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: var(--pg-dark-fg);
+      }
+      .title-block h2 .hl {
+        color: var(--pg-amber);
+      }
+
+      .split {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 360px;
+        bottom: 220px;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: 1fr 56px 1fr;
+      }
+
+      .col {
+        display: flex;
+        flex-direction: column;
+        padding: 32px 28px;
+        background: var(--pg-dark-surface);
+        border: 1px solid var(--pg-line);
+        border-radius: 20px;
+      }
+      .col.left {
+        border-color: rgba(232, 185, 96, 0.22);
+      }
+      .col.right {
+        border-color: rgba(127, 176, 105, 0.28);
+      }
+
+      .col .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .col.left .tag {
+        color: var(--pg-amber);
+      }
+      .col.right .tag {
+        color: var(--pg-green);
+      }
+
+      .col .headline {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 1.2;
+        color: var(--pg-dark-fg);
+        letter-spacing: -0.02em;
+        margin-bottom: 22px;
+      }
+
+      .col .arrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        color: var(--pg-dark-fg-subtle);
+        margin-bottom: 12px;
+      }
+
+      .col .skill {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 28px;
+        color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.1);
+        padding: 10px 14px;
+        border-radius: 10px;
+        letter-spacing: 0;
+        margin-bottom: 26px;
+        display: inline-block;
+        align-self: flex-start;
+      }
+
+      .col .example-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pg-dark-fg-subtle);
+        margin-bottom: 10px;
+      }
+      .col .example {
+        font-family: var(--font-sans);
+        font-size: 22px;
+        font-style: italic;
+        line-height: 1.45;
+        color: var(--pg-dark-fg-muted);
+        background: var(--pg-dark-surface-2);
+        padding: 14px 16px;
+        border-radius: 10px;
+      }
+      .col .example code {
+        font-family: "JetBrains Mono", monospace;
+        font-style: normal;
+        font-size: 18px;
+        background: var(--pg-dark);
+        padding: 1px 6px;
+        border-radius: 5px;
+        color: var(--pg-dark-fg);
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--pg-dark-fg-subtle);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 48px;
+      }
+
+      .bottom-note {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 110px;
+        z-index: 5;
+        text-align: center;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 24px;
+        color: var(--pg-dark-fg-muted);
+      }
+      .bottom-note code {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.1);
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="07 Which one first">
+      <div class="grid-bg"></div>
+
+      <div class="top">
+        <span>WHICH <span class="tag">·</span> ONE FIRST?</span>
+        <span>COMPARE · 07</span>
+      </div>
+
+      <div class="title-block">
+        <div class="eyebrow">어느 스킬부터 <b>호출하나요</b></div>
+        <h2>어느 <span class="hl">스킬</span>부터?</h2>
+      </div>
+
+      <div class="split">
+        <div class="col left">
+          <div class="tag">의도 모호</div>
+          <div class="headline">"어떻게" 할지<br />방향이 흐릿함</div>
+          <div class="arrow">→ 먼저</div>
+          <div class="skill">brainstorming</div>
+          <div class="example-label">EXAMPLE</div>
+          <div class="example">"결제 실패 화면,<br />다시 설계하고 싶어"</div>
+        </div>
+
+        <div class="divider">—</div>
+
+        <div class="col right">
+          <div class="tag">방향 명확</div>
+          <div class="headline">"무엇을" 할지<br />이미 잡힘</div>
+          <div class="arrow">→ 바로</div>
+          <div
+            class="skill"
+            style="color: var(--pg-green); background: rgba(127, 176, 105, 0.1)"
+          >
+            explore-plan-code
+          </div>
+          <div class="example-label">EXAMPLE</div>
+          <div class="example">
+            "결제 실패 응답에<br />
+            <code>재시도 가능</code> 플래그 추가"
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-note">
+        같은 문제라도 <code>모호</code> 와 <code>명확</code> 에 따라 들어가는
+        스킬이 달라져요
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span>
+          <span class="page"># 07 / 08</span>
+          <span class="sep">·</span>
+          <span class="swipe">SWIPE →</span>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

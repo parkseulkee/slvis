@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Post 02 / 06 — Photo Essay</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 72px 72px 64px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        align-items: start;
+      }
+      .frame {
+        position: relative;
+        background: #000;
+        border: 1px solid var(--pg-line);
+        border-radius: 22px;
+        overflow: hidden;
+        aspect-ratio: 1206 / 1885;
+      }
+      .frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .frame .cap {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        font-family: var(--font-mono);
+        font-size: 16px;
+        color: var(--pg-amber);
+        background: rgba(14, 13, 10, 0.82);
+        padding: 5px 12px;
+        border-radius: 6px;
+        letter-spacing: 0.1em;
+        z-index: 2;
+      }
+      .caption {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 44px;
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: var(--pg-ink);
+      }
+      .caption code {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 40px;
+        color: var(--pg-amber);
+        letter-spacing: 0.02em;
+      }
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        color: var(--pg-ink-muted);
+      }
+      .meta .acc {
+        color: var(--pg-amber);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide tech" data-screen-label="06 Photo Essay">
+      <div class="top">
+        <span>— <span class="tag">실제 화면</span></span>
+        <span># 06 / 07</span>
+      </div>
+
+      <div class="gallery">
+        <div class="frame">
+          <span class="cap">01 · ENTRY</span>
+          <img src="assets/slvis-01-entry.jpeg" alt="/daily 실행 직후 화면" />
+        </div>
+        <div class="frame">
+          <span class="cap">02 · BRIEFING</span>
+          <img src="assets/slvis-02-briefing-top.jpeg" alt="최종 브리핑 결과" />
+        </div>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-top: auto;
+        "
+      >
+        <p class="caption">
+          침대에서 <code>/daily</code> 치고<br />
+          커피 내리러 가요.
+        </p>
+        <div class="meta">
+          <span>AI · <span class="acc">WORKFLOW</span></span>
+          <span>@codemom.life</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>&nbsp;</span>
+        <span class="swipe">SWIPE →</span>
+      </div>
+    </div>
+  </body>
+</html>

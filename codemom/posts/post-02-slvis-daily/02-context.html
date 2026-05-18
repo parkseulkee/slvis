@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Post 02 / 02 — Context</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 96px 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .qmark {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 220px;
+        line-height: 0.8;
+        color: var(--pg-amber);
+      }
+      blockquote {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 72px;
+        line-height: 1.18;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: var(--pg-ink);
+      }
+      blockquote .hl {
+        color: var(--pg-amber);
+      }
+      blockquote .num {
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--pg-amber);
+      }
+      .attrib {
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--pg-ink-muted);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 8px;
+      }
+      .attrib .line {
+        width: 48px;
+        height: 1px;
+        background: var(--pg-amber);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide tech" data-screen-label="02 Context Quote">
+      <div class="top">
+        <span>— <span class="tag">어느 아침</span></span>
+        <span># 02 / 07</span>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+          position: relative;
+        "
+      >
+        <div class="qmark">“</div>
+        <blockquote>
+          아침마다 캘린더 열고,<br />
+          뉴스 몇 개 훑고,<br />
+          기록까지 하다 보면<br />
+          어느새 <span class="hl">30분</span>이 그냥 가요.
+        </blockquote>
+        <div class="attrib"><span class="line"></span>매일 반복되던 루틴</div>
+      </div>
+
+      <div class="footer">
+        <span>@codemom.life</span>
+        <span class="swipe">SWIPE →</span>
+      </div>
+    </div>
+  </body>
+</html>

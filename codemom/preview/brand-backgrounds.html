@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  .card { width: 700px; padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .bg { aspect-ratio: 4/5; border-radius: 14px; padding: 14px; display:flex; flex-direction: column; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; overflow: hidden; position: relative; }
+  .bg .top { opacity: 0.7; }
+  .bg .mid { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; letter-spacing: -0.03em; text-transform: none; }
+  .bg .use { font-size: 9px; opacity: 0.55; }
+
+  .b-cream { background: #FAF7F2; color: #2E2A22; box-shadow: inset 0 0 0 1px #E8DFCA; }
+  .b-beige { background: #F2ECE0; color: #2E2A22; }
+  .b-beige-2 { background: #E8DFCA; color: #2E2A22; }
+  .b-dark { background: #0E0D0A; color: #F2ECE0; }
+  .b-dark-2 { background: #17150F; color: #F2ECE0; box-shadow: inset 0 0 0 1px #22201A; }
+  .b-terracotta { background: #C4461F; color: #FAF7F2; }
+</style></head>
+<body>
+<div class="card">
+  <div class="bg b-cream">
+    <div class="top">BG · #FAF7F2</div>
+    <div class="mid">본문 기본</div>
+    <div class="use">LIFE 모든 일반 슬라이드</div>
+  </div>
+  <div class="bg b-beige">
+    <div class="top">SURFACE · #F2ECE0</div>
+    <div class="mid">비교·매트릭스</div>
+    <div class="use">카드가 올라가는 베이스 (04, 08, 11)</div>
+  </div>
+  <div class="bg b-beige-2">
+    <div class="top">SURFACE-2 · #E8DFCA</div>
+    <div class="mid">강조 섹션</div>
+    <div class="use">본문 안 블록/인용 박스 배경</div>
+  </div>
+  <div class="bg b-dark">
+    <div class="top">TECH BG · #0E0D0A</div>
+    <div class="mid">AI·개발 컨텐츠</div>
+    <div class="use">A1~A8, D4 타임라인 등 전면</div>
+  </div>
+  <div class="bg b-dark-2">
+    <div class="top">TECH SURFACE · #17150F</div>
+    <div class="mid">터미널 블록</div>
+    <div class="use">다크 위 단계 카드·코드 박스</div>
+  </div>
+  <div class="bg b-terracotta">
+    <div class="top">ACCENT · #C4461F</div>
+    <div class="mid">CTA·마무리</div>
+    <div class="use">09 CTA, 모집 공지, 중요 알림만</div>
+  </div>
+</div>
+</body></html>

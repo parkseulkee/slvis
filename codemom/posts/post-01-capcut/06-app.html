@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>06 App — JANJAN</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      /* Slide 06 local token — JANJAN redesign accent (dusty rose) */
+      .slide {
+        --rose: #d4637a;
+        --rose-soft: #e08aa0;
+        background: var(--pg-dark);
+        color: var(--pg-bg);
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(212, 99, 122, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(212, 99, 122, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+      }
+      /* Override series/page-num rose (was amber) */
+      .slide.dark .series .name {
+        color: var(--rose-soft);
+      }
+      .slide.dark .page-num b {
+        color: var(--rose-soft);
+      }
+
+      .body {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 168px;
+        bottom: 130px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .intro {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 26px;
+        color: #a89c82;
+        letter-spacing: -0.01em;
+      }
+
+      /* Top row: logo block + concept image */
+      .header-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .logo-block {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .logo-row {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .logo-mark {
+        width: 72px;
+        height: 72px;
+        background: var(--rose);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-mark svg {
+        width: 44px;
+        height: 44px;
+      }
+      .logo-word {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 56px;
+        color: var(--pg-bg);
+        letter-spacing: -0.035em;
+      }
+      .tagline {
+        font-family: var(--font-mono);
+        font-size: 17px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #a89c82;
+      }
+      .tagline .em {
+        color: var(--rose-soft);
+      }
+
+      /* Design concept image */
+      .concept-img {
+        width: 360px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid #2a2520;
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+        position: relative;
+      }
+      .concept-img img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .concept-img .tag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(14, 13, 10, 0.72);
+        color: var(--rose-soft);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 6px 10px;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+      }
+
+      .concept {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+        color: var(--pg-bg);
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .concept .fade {
+        color: #6b6150;
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+        text-decoration-color: #6b6150;
+      }
+      .concept .hl {
+        color: var(--rose-soft);
+      }
+
+      .explain {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 1.5;
+        color: #a89c82;
+        letter-spacing: -0.01em;
+        max-width: 820px;
+        padding-left: 20px;
+        border-left: 2px solid var(--rose);
+      }
+      .explain b {
+        color: var(--pg-bg);
+        font-weight: 700;
+      }
+
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 24px;
+        align-items: center;
+        padding: 22px 28px;
+        background: var(--pg-dark-surface);
+        border: 1px solid #22201a;
+        border-radius: 16px;
+        margin-top: auto;
+      }
+      .compare .side {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .compare .label {
+        font-family: var(--font-mono);
+        font-size: 16px;
+        letter-spacing: 0.14em;
+        color: #6b6150;
+        text-transform: uppercase;
+      }
+      .compare .time {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 46px;
+        letter-spacing: -0.03em;
+      }
+      .compare .side.before .time {
+        color: #a89c82;
+        text-decoration: line-through;
+        text-decoration-thickness: 3px;
+        text-decoration-color: var(--rose);
+      }
+      .compare .side.after .time {
+        color: var(--rose-soft);
+      }
+      .compare .arrow {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 28px;
+        color: var(--rose-soft);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide dark" data-screen-label="06 App">
+      <div class="series">
+        <span class="bracket">&lt;codemom&gt;</span>
+        <span class="name">코드맘이만든앱</span>
+      </div>
+      <div class="page-num">06 / <b>08</b></div>
+
+      <div class="body">
+        <div class="intro">그래서 진짜 만들었어요.</div>
+
+        <div class="header-row">
+          <div class="logo-block">
+            <div class="logo-row">
+              <div class="logo-mark">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path
+                    d="M4 20 C10 14, 16 26, 24 20 S 38 14, 44 20"
+                    stroke="#0E0D0A"
+                    stroke-width="3.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4 30 C10 24, 16 36, 24 30 S 38 24, 44 30"
+                    stroke="#0E0D0A"
+                    stroke-width="3.5"
+                    stroke-linecap="round"
+                    opacity="0.55"
+                  />
+                </svg>
+              </div>
+              <div class="logo-word">JANJAN</div>
+            </div>
+            <div class="tagline">
+              A <span class="em">diary</span> for the quiet days
+            </div>
+          </div>
+
+          <div class="concept-img">
+            <span class="tag">Redesign · in progress</span>
+            <img
+              src="assets/janjan-concept.png"
+              alt="JANJAN 리디자인 시안 — 하루의 장면별 실루엣 9개로 구성된 그리드"
+            />
+          </div>
+        </div>
+
+        <h2 class="concept">
+          <span class="fade">흘려보내던</span> 잔잔한 하루를<br />
+          <span class="hl">기록</span>하게 만드는 앱.
+        </h2>
+
+        <div class="explain">
+          기념일만 사진 찍지 마세요. 아기가 처음 웃은 목요일,<br />
+          아무 일 없던 화요일 오후 — <b>그게 진짜 하루거든요.</b>
+        </div>
+
+        <div class="compare">
+          <div class="side before">
+            <div class="label">CapCut</div>
+            <div class="time">40분</div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="side after">
+            <div class="label">JANJAN</div>
+            <div class="time">30초</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>@codemom.life</span>
+        <span>SWIPE →</span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>Pros / Cons</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide { background: #FAF7F2; color: #2E2A22; padding: 96px 72px; display: flex; flex-direction: column; gap: 40px; }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7E68; }
+  .top .tag { color: #C4461F; }
+  h2 { font-family: var(--font-sans); font-weight: 800; font-size: 60px; line-height: 1.05; letter-spacing: -0.03em; margin: 0; }
+  h2 em { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-style: normal; color: #C4461F; }
+  .sub { font-family: var(--font-mono); font-size: 20px; color: #8A7E68; letter-spacing: 0.04em; }
+  .col-wrap { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .col { border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 18px; }
+  .col.pros { background: #fff; box-shadow: 0 1px 2px rgba(46,42,34,0.04), 0 8px 24px rgba(46,42,34,0.06); }
+  .col.cons { background: #2E2A22; color: #F2ECE0; }
+  .col .hdr { display:flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .col.pros .hdr { color: #6B8A3E; }
+  .col.cons .hdr { color: #E8B960; }
+  .col .sym { width: 32px; height: 32px; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-weight: 700; font-family: var(--font-mono); }
+  .col.pros .sym { background: #6B8A3E; color: #fff; }
+  .col.cons .sym { background: #E8B960; color: #0E0D0A; }
+  ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  li { font-family: var(--font-sans); font-size: 22px; line-height: 1.35; padding-left: 22px; position: relative; }
+  .col.pros li { color: #2E2A22; }
+  .col.cons li { color: #A89C82; }
+  .col.pros li::before { content: "+"; position: absolute; left: 0; color: #6B8A3E; font-weight: 700; }
+  .col.cons li::before { content: "−"; position: absolute; left: 0; color: #E8B960; font-weight: 700; }
+  .footer { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 18px; color: #8A7E68; letter-spacing: 0.08em; }
+</style></head>
+<body>
+<div class="slide" data-screen-label="08 Pros Cons">
+  <div class="top"><span>AI · <span class="tag">A5</span></span><span>2 / 7</span></div>
+  <div>
+    <h2>Cursor <em>솔직</em> 후기</h2>
+    <div class="sub">3개월 매일 써본 개발자맘 시점</div>
+  </div>
+  <div class="col-wrap">
+    <div class="col pros">
+      <div class="hdr"><div class="sym">+</div>PROS</div>
+      <ul>
+        <li>맥락 이해가 예상보다 좋아요</li>
+        <li>다이얼 맞추는 재미가 있어요</li>
+        <li>타이핑이 확 줄어요</li>
+      </ul>
+    </div>
+    <div class="col cons">
+      <div class="hdr"><div class="sym">−</div>CONS</div>
+      <ul>
+        <li>자꾸 믿게 돼서 리뷰가 느슨해져요</li>
+        <li>러닝커브가 없진 않아요</li>
+        <li>월 구독료가 쌓여요</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer"><span>@codemom.life</span><span>SWIPE →</span></div>
+</div>
+</body></html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  .card { width: 700px; padding: 28px; }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw { display:flex; flex-direction:column; gap: 6px; }
+  .chip { aspect-ratio: 1/1; border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); display:flex; align-items:flex-end; padding: 8px; font-family: var(--font-mono); font-size: 9px; color: rgba(0,0,0,0.5); }
+  .chip.dark { color: rgba(255,255,255,0.6); }
+  .name { font-family: var(--font-mono); font-size: 10px; color:#2E2A22; }
+  .hex { font-family: var(--font-mono); font-size: 9px; color:#8A7E68; }
+  .title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7E68; margin-bottom: 14px; }
+</style></head>
+<body>
+<div class="card">
+  <div class="title">ACCENTS · 강조색 (상황별)</div>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#C4461F; color:#fff" class="dark">terracotta</div><div class="name">LIFE accent</div><div class="hex">#C4461F</div></div>
+    <div class="sw"><div class="chip" style="background:#D89B5C">amber-warm</div><div class="name">LIFE accent-2</div><div class="hex">#D89B5C</div></div>
+    <div class="sw"><div class="chip" style="background:#F4E4C1">butter</div><div class="name">highlight</div><div class="hex">#F4E4C1</div></div>
+    <div class="sw"><div class="chip dark" style="background:#E8B960">amber</div><div class="name">TECH accent</div><div class="hex">#E8B960</div></div>
+    <div class="sw"><div class="chip dark" style="background:#7FB069">terminal-grn</div><div class="name">TECH accent-2</div><div class="hex">#7FB069</div></div>
+    <div class="sw"><div class="chip dark" style="background:#6B8A3E">olive</div><div class="name">ok / 완료</div><div class="hex">#6B8A3E</div></div>
+    <div class="sw"><div class="chip dark" style="background:#E07856">ember</div><div class="name">err / 경고</div><div class="hex">#E07856</div></div>
+  </div>
+</div>
+</body></html>

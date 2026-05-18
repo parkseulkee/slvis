@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>04 · Skill 1 — brainstorming</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 72px 72px;
+      }
+
+      .title-block {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 140px;
+        z-index: 5;
+      }
+      .title-block .skill-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 22px;
+        color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.1);
+        padding: 8px 16px;
+        border-radius: 10px;
+        letter-spacing: 0.02em;
+        margin-bottom: 22px;
+      }
+      .title-block .skill-chip .num {
+        color: var(--pg-dark-fg-muted);
+        font-weight: 700;
+      }
+
+      .title-block h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: var(--pg-dark-fg);
+      }
+      .title-block h2 .hl {
+        color: var(--pg-amber);
+      }
+
+      .list {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 400px;
+        bottom: 180px;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 24px;
+        align-items: flex-start;
+        padding: 22px 26px;
+        background: var(--pg-dark-surface);
+        border: 1px solid var(--pg-line);
+        border-radius: 18px;
+      }
+      .row.visual {
+        border-color: rgba(232, 185, 96, 0.4);
+        background: linear-gradient(
+          90deg,
+          var(--pg-dark-surface) 0%,
+          rgba(232, 185, 96, 0.06) 100%
+        );
+      }
+
+      .n {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 44px;
+        color: var(--pg-amber);
+        line-height: 1;
+        padding-top: 4px;
+      }
+
+      .row h3 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.2;
+        margin: 0 0 8px 0;
+        color: var(--pg-dark-fg);
+        letter-spacing: -0.02em;
+      }
+      .row h3 .chip-inline {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 26px;
+        color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.1);
+        padding: 2px 10px;
+        border-radius: 8px;
+        letter-spacing: 0;
+      }
+      .row .desc {
+        font-family: var(--font-sans);
+        font-size: 22px;
+        line-height: 1.45;
+        color: var(--pg-dark-fg-muted);
+      }
+      .row .desc .em {
+        color: var(--pg-amber);
+      }
+      .row .link {
+        display: inline-block;
+        margin-top: 6px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        letter-spacing: 0.06em;
+        color: var(--pg-amber);
+      }
+
+      .bottom-meta {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 110px;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.08em;
+        color: var(--pg-dark-fg-subtle);
+      }
+      .bottom-meta b {
+        color: var(--pg-amber);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="04 Skill 1 — brainstorming">
+      <div class="grid-bg"></div>
+
+      <div class="top">
+        <span>SKILL <span class="tag">1</span></span>
+        <span>LIST · 04</span>
+      </div>
+
+      <div class="title-block">
+        <div class="skill-chip">
+          <span class="num">01 ·</span> brainstorming
+        </div>
+        <h2><span class="hl">뭘</span> 만들지 합의</h2>
+      </div>
+
+      <div class="list">
+        <div class="row">
+          <div class="n">01</div>
+          <div>
+            <h3>하드게이트</h3>
+            <div class="desc">
+              유저가 설계를 승인할 때까지 <span class="em">코드 금지</span>.
+              "간단해서"는 안 먹혀요.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="n">02</div>
+          <div>
+            <h3>한 번에 한 질문</h3>
+            <div class="desc">
+              목적 · 제약 · 성공 기준 — 가능하면 <span class="em">객관식</span>.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="n">03</div>
+          <div>
+            <h3>2~3안 비교</h3>
+            <div class="desc">
+              트레이드오프 + 추천안 + 그 이유까지 같이 제시해요.
+            </div>
+          </div>
+        </div>
+
+        <div class="row visual">
+          <div class="n">04</div>
+          <div>
+            <h3><span class="chip-inline">visual-companion</span></h3>
+            <div class="desc">
+              시각 논의는 브라우저로 — mockup · 다이어그램 · A/B 비교를 한
+              화면에.
+              <span class="link">→ NEXT SLIDE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-meta">
+        <span>종료 시 →</span>
+        <b>docs/plans/brainstorming/YYYY-MM-DD-*.md</b>
+        <span>커밋</span>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span>
+          <span class="page"># 04 / 08</span>
+          <span class="sep">·</span>
+          <span class="swipe">SWIPE →</span>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

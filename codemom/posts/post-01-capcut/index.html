@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>Post 01 — 8장 한눈에</title>
+<link rel="stylesheet" href="../../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#1A1814; color:#F2ECE0; font-family: var(--font-sans); }
+  .wrap { max-width: 1760px; margin: 0 auto; padding: 56px 48px; }
+  header { margin-bottom: 40px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: #E8B960; margin-bottom: 10px; }
+  h1 { font-family: var(--font-sans); font-weight: 800; font-size: 48px; letter-spacing: -0.035em; margin: 0 0 8px; }
+  .sub { font-family: var(--font-mono); font-size: 16px; color: #A89C82; letter-spacing: 0.04em; }
+  .bar { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .bar a { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em; padding: 8px 14px; border: 1px solid #2E2A22; border-radius: 6px; color: #A89C82; text-decoration: none; text-transform: uppercase; }
+  .bar a:hover { border-color: #E8B960; color: #E8B960; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .cell { display: flex; flex-direction: column; gap: 12px; }
+  .slot {
+    aspect-ratio: 4/5;
+    background: #0E0D0A;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .slot iframe {
+    width: 1080px; height: 1350px;
+    transform-origin: top left;
+    border: 0;
+    position: absolute; top: 0; left: 0;
+    /* scaled below via style */
+  }
+  .label { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; color: #A89C82; }
+  .label .num { color: #E8B960; }
+  .title { font-family: var(--font-sans); font-weight: 600; font-size: 18px; color: #F2ECE0; letter-spacing: -0.015em; }
+  .open { font-family: var(--font-mono); font-size: 12px; color: #6B6150; text-decoration: none; letter-spacing: 0.1em; }
+  .open:hover { color: #E8B960; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">&lt;codemom&gt; · Post 01 / 5 · 캡컷 후킹</div>
+    <h1>캡컷 열고 3분 만에 닫은 사람?</h1>
+    <div class="sub">8 slides · 1080×1350 · @codemom.life</div>
+  </header>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+const slides = [
+  {n:"01", t:"표지 · 훅",         file:"01-cover.html"},
+  {n:"02", t:"상황 세팅",          file:"02-setup.html"},
+  {n:"03", t:"현실",              file:"03-reality.html"},
+  {n:"04", t:"문제 제기",          file:"04-problem.html"},
+  {n:"05", t:"반전 ⚡",           file:"05-twist.html"},
+  {n:"06", t:"앱 소개 · JANJAN",   file:"06-app.html"},
+  {n:"07", t:"사용법",             file:"07-howto.html"},
+  {n:"08", t:"CTA",               file:"08-cta.html"},
+];
+
+const g = document.getElementById("grid");
+slides.forEach(s => {
+  g.insertAdjacentHTML("beforeend", `
+    <div class="cell">
+      <div class="slot" data-file="${s.file}">
+        <iframe src="${s.file}" scrolling="no"></iframe>
+      </div>
+      <div class="label"><span class="num">${s.n} / 08</span><a class="open" href="${s.file}" target="_blank">OPEN ↗</a></div>
+      <div class="title">${s.t}</div>
+    </div>
+  `);
+});
+
+// Scale iframes to fit their slot
+function fit() {
+  document.querySelectorAll(".slot").forEach(slot => {
+    const w = slot.clientWidth;
+    const scale = w / 1080;
+    const iframe = slot.querySelector("iframe");
+    iframe.style.transform = `scale(${scale})`;
+    slot.style.height = (1350 * scale) + "px";
+  });
+}
+window.addEventListener("load", fit);
+window.addEventListener("resize", fit);
+setTimeout(fit, 100);
+</script>
+</body></html>

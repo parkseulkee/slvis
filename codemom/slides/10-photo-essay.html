@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>감성 · 포토에세이</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide { background: #FAF7F2; color: #2E2A22; padding: 0; display: grid; grid-template-rows: 60% 40%; }
+  .photo { background: repeating-linear-gradient(-45deg, #E8DFCA 0 14px, #DCD1B8 14px 28px); position: relative; display:flex; align-items:center; justify-content:center; font-family: var(--font-mono); font-size: 14px; color: #8A7E68; letter-spacing: 0.14em; text-transform: uppercase; }
+  .photo::before { content:""; position:absolute; inset: 24px; border: 1.5px dashed #8A7E68; border-radius: 4px; opacity: 0.4; }
+  .photo .cap { position: absolute; top: 32px; left: 32px; font-family: var(--font-mono); font-size: 14px; background: rgba(250,247,242,0.85); color: #6B6150; padding: 4px 10px; border-radius: 4px; }
+  .text { padding: 56px 72px; display: flex; flex-direction: column; justify-content: space-between; }
+  .essay { font-family: 'Space Grotesk', sans-serif; font-size: 40px; line-height: 1.32; letter-spacing: -0.02em; margin: 0; }
+  .essay em {  color: #C4461F; }
+  .meta { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A7E68; }
+  .meta .acc { color: #C4461F; }
+</style></head>
+<body>
+<div class="slide" data-screen-label="10 Photo Essay">
+  <div class="photo"><span>[ PHOTO · 1080×810 ]</span><div class="cap">01:47 AM · 거실</div></div>
+  <div class="text">
+    <p class="essay">
+      아기 숨소리가<br/>
+      방 문 틈으로 들어오고,<br/>
+      <em>타자 소리</em>만 남아요.
+    </p>
+    <div class="meta"><span>LIFE · <span class="acc">L1</span></span><span>@codemom.life</span></div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Post 04 — Claude Design system — 8장 한눈에</title>
+    <link rel="stylesheet" href="../../colors_and_type.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #1a1814;
+        color: #f2ece0;
+        font-family: var(--font-sans);
+      }
+      .wrap {
+        max-width: 1760px;
+        margin: 0 auto;
+        padding: 56px 48px;
+      }
+      header {
+        margin-bottom: 40px;
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #e8b960;
+        margin-bottom: 10px;
+      }
+      h1 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 48px;
+        letter-spacing: -0.035em;
+        margin: 0 0 8px;
+      }
+      .sub {
+        font-family: var(--font-mono);
+        font-size: 16px;
+        color: #a89c82;
+        letter-spacing: 0.04em;
+      }
+      .bar {
+        margin-top: 28px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .bar a {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.1em;
+        padding: 8px 14px;
+        border: 1px solid #2e2a22;
+        border-radius: 6px;
+        color: #a89c82;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      .bar a:hover {
+        border-color: #e8b960;
+        color: #e8b960;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+      }
+      .cell {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .slot {
+        aspect-ratio: 4/5;
+        background: #0e0d0a;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      }
+      .slot iframe {
+        width: 1080px;
+        height: 1350px;
+        transform-origin: top left;
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .label {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        color: #a89c82;
+      }
+      .label .num {
+        color: #e8b960;
+      }
+      .label .mode-tag {
+        color: #6b6150;
+        letter-spacing: 0.12em;
+      }
+      .label .mode-tag.tech {
+        color: #e8b960;
+      }
+      .label .mode-tag.life {
+        color: #c4461f;
+      }
+      .title {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 18px;
+        color: #f2ece0;
+        letter-spacing: -0.015em;
+      }
+      .open {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: #6b6150;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+      }
+      .open:hover {
+        color: #e8b960;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="eyebrow">
+          &lt;codemom&gt; · Post 04 · Claude Design system
+        </div>
+        <h1>`Claude Design`으로 1시간 만에 만든 인스타 카드뉴스 시스템</h1>
+        <div class="sub">
+          8 slides · 1080×1350 · @codemom.life · TECH 2 + LIFE 5 + CTA
+          (terracotta)
+        </div>
+        <div class="bar">
+          <a href="plan.md" target="_blank">PLAN.MD</a>
+          <a href="exports/png/" target="_blank">EXPORTS/PNG</a>
+          <a href="https://www.instagram.com/codemom.life" target="_blank"
+            >@CODEMOM.LIFE</a
+          >
+        </div>
+      </header>
+
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <script>
+      const slides = [
+        {
+          n: "01",
+          t: "표지 · 훅 + mural",
+          file: "01-cover.html",
+          mode: "tech",
+        },
+        {
+          n: "02",
+          t: "선언 · Claude로만",
+          file: "02-declaration.html",
+          mode: "tech",
+        },
+        {
+          n: "03",
+          t: "결과물 진입",
+          file: "03-what-i-built.html",
+          mode: "life",
+        },
+        { n: "04", t: "결과물 A · 토큰", file: "04-tokens.html", mode: "life" },
+        {
+          n: "05",
+          t: "결과물 B · 템플릿 12종",
+          file: "05-templates.html",
+          mode: "life",
+        },
+        {
+          n: "06",
+          t: "결과물 C · Dual-Theme",
+          file: "06-dual-theme.html",
+          mode: "life",
+        },
+        {
+          n: "07",
+          t: "반복 가능성 · 스킬",
+          file: "07-reuse.html",
+          mode: "life",
+        },
+        { n: "08", t: "CTA", file: "08-cta.html", mode: "cta" },
+      ];
+
+      const g = document.getElementById("grid");
+      slides.forEach((s) => {
+        g.insertAdjacentHTML(
+          "beforeend",
+          `
+    <div class="cell">
+      <div class="slot" data-file="${s.file}">
+        <iframe src="${s.file}" scrolling="no"></iframe>
+      </div>
+      <div class="label">
+        <span class="num">${s.n} / 08</span>
+        <span class="mode-tag ${s.mode}">${s.mode.toUpperCase()}</span>
+        <a class="open" href="${s.file}" target="_blank">OPEN ↗</a>
+      </div>
+      <div class="title">${s.t}</div>
+    </div>
+  `,
+        );
+      });
+
+      function fit() {
+        document.querySelectorAll(".slot").forEach((slot) => {
+          const w = slot.clientWidth;
+          const scale = w / 1080;
+          const iframe = slot.querySelector("iframe");
+          iframe.style.transform = `scale(${scale})`;
+          slot.style.height = 1350 * scale + "px";
+        });
+      }
+      window.addEventListener("load", fit);
+      window.addEventListener("resize", fit);
+      setTimeout(fit, 100);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Post 02 / 03 — SLVIS Intro</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 72px 72px 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .kicker {
+        font-family: var(--font-mono);
+        font-size: 22px;
+        color: var(--pg-green);
+        letter-spacing: 0.04em;
+        margin-bottom: 24px;
+      }
+      .kicker .v {
+        color: var(--pg-amber);
+      }
+      h1 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 88px;
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+        margin: 0 0 48px;
+        color: var(--pg-ink);
+      }
+      h1 .accent {
+        color: var(--pg-amber);
+      }
+      .bullets {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .bullet {
+        background: var(--pg-surface);
+        border: 1px solid var(--pg-line);
+        border-radius: 16px;
+        padding: 26px 32px;
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 24px;
+        align-items: center;
+      }
+      .bullet .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--pg-amber);
+        margin-left: 16px;
+      }
+      .bullet p {
+        font-family: var(--font-sans);
+        font-size: 30px;
+        line-height: 1.35;
+        margin: 0;
+        color: var(--pg-ink);
+        letter-spacing: -0.015em;
+      }
+      .bullet p code {
+        font-family: var(--font-mono);
+        font-size: 26px;
+        color: var(--pg-amber);
+        background: var(--pg-surface-2);
+        padding: 2px 10px;
+        border-radius: 6px;
+        letter-spacing: 0.02em;
+      }
+      .bullet p b {
+        color: var(--pg-amber);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide tech" data-screen-label="03 SLVIS Intro">
+      <div class="top">
+        <span>SLVIS · <span class="tag">v1</span></span>
+        <span>~/slvis</span>
+      </div>
+
+      <div style="position: relative">
+        <div class="kicker">// <span class="v">meet SLVIS</span></div>
+        <h1>나를 제일 잘 아는<br /><span class="accent">AI 비서</span>예요.</h1>
+
+        <div class="bullets">
+          <div class="bullet">
+            <div class="dot"></div>
+            <p>내 <b>관심사·직업</b>을 알고 기사를 큐레이션해요</p>
+          </div>
+          <div class="bullet">
+            <div class="dot"></div>
+            <p>매번 <b>내 프로필</b>부터 읽고 시작해요</p>
+          </div>
+          <div class="bullet">
+            <div class="dot"></div>
+            <p><code>슬기님</code>이라 부르는 전용 비서 (자비스 영감)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>@codemom.life</span>
+        <span class="swipe"># 03 / 07 &nbsp;&nbsp; SWIPE →</span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>08 CTA — 팔로우 + 저장</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        background: var(--pg-accent);
+        color: var(--pg-bg);
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.06) 1px,
+          transparent 1.5px
+        );
+        background-size: 32px 32px;
+        pointer-events: none;
+      }
+      .slide.cta .series,
+      .slide.cta .page-num,
+      .slide.cta .footer {
+        color: rgba(250, 247, 242, 0.7);
+      }
+      .slide.cta .series .name {
+        color: #f4e4c1;
+      }
+      .slide.cta .page-num b {
+        color: #f4e4c1;
+      }
+
+      .body {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 200px;
+        bottom: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .opener {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: #faf7f2;
+      }
+      .opener .em {
+        color: #f4e4c1;
+      }
+      .opener .sub {
+        display: block;
+        margin-top: 24px;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 34px;
+        line-height: 1.4;
+        color: rgba(250, 247, 242, 0.85);
+        letter-spacing: -0.015em;
+      }
+
+      .cta-card {
+        background: #faf7f2;
+        color: var(--pg-ink);
+        border-radius: 24px;
+        padding: 36px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+      }
+      .cta-card .bookmark {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pg-ink-subtle);
+      }
+      .cta-card .bookmark .mark {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        background: var(--pg-accent);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      .cta-card .bookmark .mark svg {
+        width: 16px;
+        height: 16px;
+        display: block;
+      }
+      .cta-card h3 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 62px;
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        margin: 0;
+      }
+      .cta-card h3 .plus {
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--pg-accent);
+        font-weight: 700;
+      }
+      .cta-card .promise {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.45;
+        color: var(--pg-ink-muted);
+        margin: 0;
+      }
+      .cta-card .promise b {
+        color: var(--pg-ink);
+        font-weight: 700;
+      }
+
+      .handle-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 28px;
+        background: rgba(14, 13, 10, 0.35);
+        border-radius: 999px;
+        color: #faf7f2;
+        font-family: var(--font-mono);
+        font-size: 22px;
+        letter-spacing: 0.08em;
+      }
+      .handle-row .handle {
+        color: #f4e4c1;
+        font-weight: 500;
+      }
+      .handle-row .tag {
+        font-size: 16px;
+        color: rgba(250, 247, 242, 0.7);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide cta" data-screen-label="08 CTA">
+      <div class="series">
+        <span class="bracket">&lt;codemom&gt;</span>
+        <span class="name">코드맘이만든앱</span>
+      </div>
+      <div class="page-num">08 / <b>08</b></div>
+
+      <div class="body">
+        <div class="opener">
+          아기 재우고 <span class="em">새벽에</span><br />
+          코딩하며 만들었어요.
+          <span class="sub"
+            >캡컷 포기한 분들에게<br />꼭 보여드리고 싶어요.</span
+          >
+        </div>
+
+        <div class="cta-card">
+          <div class="bookmark">
+            <span class="mark" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M4 2.5 C4 2.22 4.22 2 4.5 2 H11.5 C11.78 2 12 2.22 12 2.5 V13.8 L8 10.8 L4 13.8 V2.5 Z"
+                  fill="#fff"
+                />
+              </svg>
+            </span>
+            Follow &amp; Save
+          </div>
+          <h3>팔로우 <span class="plus">+</span> 저장</h3>
+          <p class="promise">
+            <b>베타 테스트</b> 때 가장 먼저 알려드릴게요.<br />
+            시리즈 2편도 이어집니다.
+          </p>
+        </div>
+
+        <div class="handle-row">
+          <span class="handle">@codemom.life</span>
+          <span class="tag">#코드맘이만든앱 1/5</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>THE END · 01</span>
+        <span>NEXT — POST 02 →</span>
+      </div>
+    </div>
+  </body>
+</html>

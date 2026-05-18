@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  .card { width: 700px; padding: 24px; display:flex; flex-direction:column; gap: 14px; }
+
+  .numcard { background: #fff; border-radius: 18px; padding: 22px 26px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 1px 2px rgba(46,42,34,0.05), 0 6px 18px rgba(46,42,34,0.06); }
+  .num { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 64px; line-height: 0.9; color: #C4461F; letter-spacing: -0.04em; min-width: 64px; }
+  .numcard .body { padding-top: 8px; }
+  .numcard h3 { font-family: var(--font-sans); font-weight: 700; font-size: 22px; margin: 0 0 6px; color: #2E2A22; letter-spacing: -0.02em; }
+  .numcard p { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; margin: 0; color: #6B6150; }
+
+  .terminal { background: #17150F; border-radius: 14px; padding: 18px 22px; font-family: var(--font-mono); font-size: 13px; color: #F2ECE0; box-shadow: 0 0 0 1px #2E2A22; }
+  .terminal .t-head { display:flex; gap: 6px; margin-bottom: 10px; }
+  .terminal .t-head i { width: 10px; height: 10px; border-radius: 50%; background: #2E2A22; display: block; }
+  .terminal .t-head i:nth-child(1) { background: #E07856; }
+  .terminal .t-head i:nth-child(2) { background: #E8B960; }
+  .terminal .t-head i:nth-child(3) { background: #7FB069; }
+  .terminal .prompt { color: #7FB069; }
+  .terminal .cmd { color: #E8B960; }
+  .terminal .dim { color: #6B6150; }
+</style></head>
+<body>
+<div class="card">
+  <div class="numcard">
+    <div class="num">01</div>
+    <div class="body">
+      <h3>Cursor</h3>
+      <p>새벽에 혼자 코딩할 때 제일 많이 써요. 생각보다 많이 맞춰주더라고요.</p>
+    </div>
+  </div>
+  <div class="terminal">
+    <div class="t-head"><i></i><i></i><i></i></div>
+    <div><span class="prompt">~/codemom</span> <span class="dim">$</span> <span class="cmd">npm run dev</span></div>
+    <div class="dim">  ✓ ready in 342ms</div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>타임라인 · 루틴</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide {
+    background: #0E0D0A;
+    color: #F2ECE0;
+    padding: 96px 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    position: relative;
+  }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: #A89C82; }
+  .top .tag { color: #E8B960; }
+  h2 { font-family: var(--font-sans); font-weight: 800; font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; margin: 0; color: #F2ECE0; }
+  h2 .accent { color: #E8B960; font-family: var(--font-mono); font-weight: 500; }
+
+  .timeline { flex: 1; display: flex; flex-direction: column; gap: 2px; border-left: 2px solid #22201A; padding-left: 36px; margin-left: 12px; position: relative; }
+  .row { display: grid; grid-template-columns: 140px 1fr; gap: 28px; padding: 22px 0; align-items: baseline; position: relative; border-bottom: 1px dashed #22201A; }
+  .row:last-child { border-bottom: none; }
+  .row::before { content:""; position: absolute; left: -45px; top: 34px; width: 14px; height: 14px; border-radius: 50%; background: #0E0D0A; box-shadow: 0 0 0 2px #E8B960; }
+  .row.active::before { background: #E8B960; }
+  .time { font-family: var(--font-mono); font-size: 28px; color: #E8B960; letter-spacing: 0.04em; }
+  .time .dim { color: #6B6150; font-size: 18px; }
+  .event h3 { font-family: var(--font-sans); font-weight: 700; font-size: 32px; margin: 0 0 6px; color: #F2ECE0; letter-spacing: -0.02em; }
+  .event p { font-family: var(--font-sans); font-size: 20px; color: #A89C82; margin: 0; line-height: 1.45; }
+  .event .code { font-family: var(--font-mono); font-size: 17px; color: #7FB069; background: #17150F; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-top: 8px; }
+  .footer { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 18px; color: #6B6150; letter-spacing: 0.08em; }
+</style></head>
+<body>
+<div class="slide" data-screen-label="05 Timeline Routine">
+  <div class="top">
+    <span>DEV · <span class="tag">D4</span></span>
+    <span>~/routine</span>
+  </div>
+  <h2>새벽 <span class="accent">02:00</span><br/>코딩 루틴</h2>
+  <div class="timeline">
+    <div class="row active">
+      <div class="time">01:40<br/><span class="dim">— wake</span></div>
+      <div class="event">
+        <h3>수유 후 완전 각성</h3>
+        <p>다시 자기엔 어정쩡, 일어나기엔 이름.</p>
+      </div>
+    </div>
+    <div class="row active">
+      <div class="time">02:00<br/><span class="dim">— code</span></div>
+      <div class="event">
+        <h3>노트북 부팅</h3>
+        <p>커피 한 잔, 이어폰, 딱 90분만 타이머.</p>
+        <span class="code">$ pnpm dev</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="time">03:30<br/><span class="dim">— commit</span></div>
+      <div class="event">
+        <h3>작은 기능 하나 푸시</h3>
+        <p>완성 못 해도 중간 커밋이 규칙.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="time">03:45<br/><span class="dim">— sleep</span></div>
+      <div class="event">
+        <h3>다시 눕기</h3>
+        <p>4시 수유 전에 잠깐이라도 자둡니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>@codemom.life</span><span># 03 / 06</span></div>
+</div>
+</body></html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>프로세스 · 단계형</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide { background: #0E0D0A; color: #F2ECE0; padding: 96px 72px; display: flex; flex-direction: column; gap: 48px; position: relative; overflow: hidden; }
+  .slide::before { content:""; position: absolute; inset: 0; background-image: linear-gradient(rgba(232,185,96,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(232,185,96,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: #A89C82; position: relative; }
+  .top .tag { color: #E8B960; }
+  h2 { font-family: var(--font-sans); font-weight: 800; font-size: 60px; line-height: 1.05; letter-spacing: -0.03em; margin: 0; color: #F2ECE0; position: relative; }
+  h2 em { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-style: normal; color: #E8B960; }
+  .steps { display: flex; flex-direction: column; gap: 18px; position: relative; }
+  .step { background: #17150F; border: 1px solid #22201A; border-radius: 16px; padding: 24px 28px; display: grid; grid-template-columns: 80px 1fr auto; gap: 24px; align-items: center; }
+  .step .n { font-family: var(--font-mono); font-size: 32px; color: #E8B960; font-weight: 700; }
+  .step h3 { font-family: var(--font-sans); font-weight: 700; font-size: 28px; margin: 0 0 4px; color: #F2ECE0; letter-spacing: -0.02em; }
+  .step p { font-family: var(--font-mono); font-size: 17px; margin: 0; color: #A89C82; letter-spacing: 0.02em; }
+  .step .time { font-family: var(--font-mono); font-size: 16px; color: #7FB069; text-align: right; }
+  .total { margin-top: auto; display: flex; justify-content: space-between; padding: 18px 26px; background: #22201A; border-radius: 12px; font-family: var(--font-mono); font-size: 18px; color: #F2ECE0; position: relative; }
+  .total .v { color: #E8B960; font-weight: 700; }
+  .footer { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 18px; color: #6B6150; letter-spacing: 0.08em; position: relative; }
+</style></head>
+<body>
+<div class="slide" data-screen-label="07 Process Steps">
+  <div class="top"><span>AI · <span class="tag">A3</span></span><span># 04 / 08</span></div>
+  <h2>AI로 앱 하나<br/>만드는 <em>전체 흐름</em></h2>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><div><h3>아이디어 스케치</h3><p>claude로 PRD 초안 → 다듬기</p></div><div class="time">~ 30min</div></div>
+    <div class="step"><div class="n">02</div><div><h3>디자인 프로토타입</h3><p>v0 / figma → 스크린 흐름</p></div><div class="time">~ 2h</div></div>
+    <div class="step"><div class="n">03</div><div><h3>스캐폴딩</h3><p>cursor new · expo + supabase</p></div><div class="time">~ 1h</div></div>
+    <div class="step"><div class="n">04</div><div><h3>핵심 기능 구현</h3><p>claude code 페어링</p></div><div class="time">~ 6h</div></div>
+    <div class="step"><div class="n">05</div><div><h3>베타 배포</h3><p>TestFlight · 친구 5명</p></div><div class="time">~ 1h</div></div>
+  </div>
+  <div class="total"><span>TOTAL</span><span class="v">~ 10.5h · 주말 하나</span></div>
+  <div class="footer"><span>@codemom.life</span><span>SWIPE →</span></div>
+</div>
+</body></html>

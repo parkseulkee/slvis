@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>08 · Photo essay — visual-companion in action</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 72px 72px;
+      }
+
+      .caption-top {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 140px;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .caption-top .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pg-dark-fg-muted);
+      }
+      .caption-top .eyebrow code {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.1);
+        padding: 2px 8px;
+        border-radius: 5px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+      .caption-top h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 56px;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: var(--pg-dark-fg);
+      }
+      .caption-top h2 .hl {
+        color: var(--pg-amber);
+      }
+
+      .photo {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 420px;
+        z-index: 5;
+        height: 430px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--pg-line);
+        box-shadow:
+          0 1px 2px rgba(232, 185, 96, 0.08),
+          0 24px 60px rgba(0, 0, 0, 0.5);
+        background: var(--pg-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .caption-bottom {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 900px;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .caption-bottom .em-line {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 28px;
+        color: var(--pg-dark-fg);
+        letter-spacing: -0.015em;
+      }
+      .caption-bottom .em-line .em {
+        color: var(--pg-amber);
+        margin-right: 10px;
+      }
+      .caption-bottom .body-line {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 24px;
+        color: var(--pg-dark-fg-muted);
+        line-height: 1.5;
+      }
+
+      .source {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 110px;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--pg-dark-fg-subtle);
+      }
+      .source b {
+        color: var(--pg-amber);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="05 Visual companion screenshot">
+      <div class="grid-bg"></div>
+
+      <div class="top">
+        <span>BRAINSTORMING <span class="tag">·</span> visual companion</span>
+        <span>PHOTO · 05</span>
+      </div>
+
+      <div class="caption-top">
+        <div class="eyebrow"><code>brainstorming</code> 의 숨은 기능</div>
+        <h2>시각 논의는<br /><span class="hl">브라우저로</span>.</h2>
+      </div>
+
+      <div class="photo">
+        <img
+          src="assets/visual-companion.png"
+          alt="visual-companion — 카드 표면 4안 비교"
+        />
+      </div>
+
+      <div class="caption-bottom">
+        <div class="em-line">
+          <span class="em">—</span>4안을 한 화면에 띄워 골라요
+        </div>
+        <div class="body-line">
+          mockup · 다이어그램 · A/B 비교를 대화 중에 바로 띄워서,<br />
+          보고 고르면 스펙에 반영돼요.
+        </div>
+      </div>
+
+      <div class="source">
+        <span>CAPTURE →</span>
+        <b>dailyclip · 카드 표면 4안 비교 세션</b>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span>
+          <span class="page"># 05 / 08</span>
+          <span class="sep">·</span>
+          <span class="swipe">SWIPE →</span>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

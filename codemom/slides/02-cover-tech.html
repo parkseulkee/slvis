@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>표지/훅 — TECH</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide {
+    background: #0E0D0A;
+    color: #F2ECE0;
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide::before {
+    content:"";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(232,185,96,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,185,96,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .top { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: #A89C82; position: relative; }
+  .top .tag { color: #E8B960; }
+  .terminal-prompt { font-family: var(--font-mono); font-size: 22px; color: #7FB069; letter-spacing: 0.04em; margin-bottom: 28px; }
+  .terminal-prompt .cursor { display: inline-block; width: 14px; height: 22px; background: #E8B960; vertical-align: -3px; margin-left: 2px; animation: blink 1s infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  h1 {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 104px;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    margin: 0;
+    color: #F2ECE0;
+  }
+  h1 .accent { color: #E8B960; }
+  h1 .strike { position: relative; display: inline-block; }
+  h1 .strike::after { content:""; position: absolute; left: -4px; right: -4px; top: 58%; height: 10px; background: #E07856; transform: rotate(-2deg); }
+  .subline { font-family: var(--font-mono); font-size: 22px; color: #A89C82; margin-top: 32px; letter-spacing: 0.04em; line-height: 1.5; }
+  .subline .hl { color: #E8B960; }
+  .footer { display: flex; justify-content: space-between; align-items: flex-end; font-family: var(--font-mono); font-size: 18px; color: #6B6150; letter-spacing: 0.08em; position: relative; }
+  .swipe { color: #E8B960; display: flex; gap: 8px; }
+</style></head>
+<body>
+<div class="slide" data-screen-label="02 Cover TECH">
+  <div style="position: relative;">
+    <div class="top">
+      <span>AI · <span class="tag">A2</span></span>
+      <span>~/codemom</span>
+    </div>
+    <div style="margin-top: 80px;">
+      <div class="terminal-prompt">$ compare<span class="cursor"></span></div>
+      <h1><span class="strike">ChatGPT</span> 말고<br/><span class="accent">Claude</span>는<br/>언제 써요?</h1>
+      <div class="subline">용도별로 <span class="hl">딱 잘라</span> 정리했어요.</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span># 05 / 08</span>
+    <span class="swipe">NEXT →</span>
+  </div>
+</div>
+</body></html>

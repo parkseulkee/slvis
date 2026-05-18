@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>비교 매트릭스</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide { background:#F2ECE0; color:#2E2A22; padding:96px 72px; display:flex; flex-direction:column; gap:36px; }
+  .top { display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:20px; letter-spacing:0.12em; text-transform:uppercase; color:#8A7E68; }
+  .top .tag { color:#C4461F; }
+  h2 { font-family:var(--font-sans); font-weight:800; font-size:60px; line-height:1.05; letter-spacing:-0.03em; margin:0; }
+  h2 em { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-style: normal; color:#C4461F; }
+  table { border-collapse:collapse; width:100%; background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 8px 24px rgba(46,42,34,0.06); }
+  th, td { padding:22px 26px; text-align:left; border-bottom:1px solid #E8DFCA; font-family:var(--font-sans); }
+  th { font-family:var(--font-mono); font-size:14px; letter-spacing:0.12em; text-transform:uppercase; color:#8A7E68; background:#FAF7F2; font-weight:500; }
+  th.chat { color:#6B8A3E; }
+  th.claude { color:#C4461F; }
+  td.use { font-weight:600; font-size:22px; }
+  td.dot { font-family:var(--font-mono); font-size:24px; text-align:center; width:110px; }
+  td.dot .on { color:#2E2A22; font-weight:700; }
+  td.dot .off { color:#CFC3AA; }
+  tr:last-child td { border-bottom:none; }
+  .footer { display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:18px; color:#8A7E68; letter-spacing:0.08em; margin-top:auto; }
+</style></head>
+<body>
+<div class="slide" data-screen-label="11 Matrix">
+  <div class="top"><span>AI · <span class="tag">A2</span></span><span>3 / 7</span></div>
+  <h2>ChatGPT <em>vs</em> Claude<br/>용도별 매트릭스</h2>
+  <table>
+    <thead><tr><th>상황</th><th class="chat">ChatGPT</th><th class="claude">Claude</th></tr></thead>
+    <tbody>
+      <tr><td class="use">긴 코드 리팩토링</td><td class="dot"><span class="off">○</span></td><td class="dot"><span class="on">●</span></td></tr>
+      <tr><td class="use">브레인스토밍</td><td class="dot"><span class="on">●</span></td><td class="dot"><span class="off">○</span></td></tr>
+      <tr><td class="use">카피 다듬기</td><td class="dot"><span class="on">●</span></td><td class="dot"><span class="on">●</span></td></tr>
+      <tr><td class="use">PRD 초안</td><td class="dot"><span class="off">○</span></td><td class="dot"><span class="on">●</span></td></tr>
+      <tr><td class="use">이미지/비전</td><td class="dot"><span class="on">●</span></td><td class="dot"><span class="off">○</span></td></tr>
+    </tbody>
+  </table>
+  <div class="footer"><span>@codemom.life</span><span>SWIPE →</span></div>
+</div>
+</body></html>

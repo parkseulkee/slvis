@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>Post 01 — Export Preview (8 slides)</title>
+<link rel="stylesheet" href="post.css"/>
+<style>
+  body { background: #0E0D0A; padding: 40px; gap: 24px; flex-direction: column; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    max-width: 1680px; margin: 0 auto;
+  }
+  .cell { display: flex; flex-direction: column; gap: 8px; }
+  .cell .label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    color: #8A7E68; text-transform: uppercase;
+  }
+  .cell iframe {
+    width: 100%; aspect-ratio: 1080/1350;
+    border: 0; background: #FAF7F2;
+    border-radius: 4px; overflow: hidden;
+  }
+  h1 {
+    font-family: var(--font-mono);
+    color: #FAF7F2; font-size: 14px;
+    letter-spacing: 0.12em; margin: 0 0 8px; text-align: center;
+  }
+  .sub {
+    font-family: var(--font-mono);
+    color: #6B6150; font-size: 11px;
+    text-align: center; margin-bottom: 16px;
+  }
+  .wrap { position: relative; width: 100%; aspect-ratio: 1080/1350; overflow: hidden; border-radius: 4px; background: #FAF7F2; }
+  .wrap iframe { position: absolute; top:0; left:0; width: 1080px; height: 1350px; transform: scale(var(--s)); transform-origin: top left; border: 0; }
+</style>
+</head><body>
+  <div>
+    <h1>POST 01 — CAPCUT EPISODE — EXPORT PREVIEW</h1>
+    <div class="sub">8 slides · 1080 × 1350 · displayed at 25% scale</div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <script>
+    const files = [
+      ['01-cover', 'Cover'],
+      ['02-setup', 'Setup'],
+      ['03-reality', 'Reality'],
+      ['04-problem', 'Problem'],
+      ['05-twist', 'Twist'],
+      ['06-app', 'App'],
+      ['07-howto', 'How-to'],
+      ['08-cta', 'CTA'],
+    ];
+    const grid = document.getElementById('grid');
+    for (const [slug, label] of files) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.innerHTML = `
+        <div class="label">${slug} · ${label}</div>
+        <div class="wrap"><iframe src="exports/html/${slug}.html"></iframe></div>
+      `;
+      grid.appendChild(cell);
+    }
+    // Scale iframes
+    function scale() {
+      document.querySelectorAll('.wrap').forEach(w => {
+        const s = w.clientWidth / 1080;
+        w.style.setProperty('--s', s);
+        w.style.height = (1350 * s) + 'px';
+      });
+    }
+    scale();
+    window.addEventListener('resize', scale);
+  </script>
+</body></html>

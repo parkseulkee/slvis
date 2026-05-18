@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Post 02 / 01 — Cover</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 72px 72px 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .terminal-prompt {
+        font-family: var(--font-mono);
+        font-size: 24px;
+        color: var(--pg-green);
+        letter-spacing: 0.04em;
+        margin-bottom: 32px;
+      }
+      .terminal-prompt .cmd {
+        color: var(--pg-amber);
+      }
+      .terminal-prompt .cursor {
+        display: inline-block;
+        width: 14px;
+        height: 26px;
+        background: var(--pg-amber);
+        vertical-align: -4px;
+        margin-left: 3px;
+        animation: blink 1s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      h1 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 108px;
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+        margin: 0;
+        color: var(--pg-ink);
+      }
+      h1 .accent {
+        color: var(--pg-amber);
+      }
+      h1 .mono {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 92px;
+        letter-spacing: 0.02em;
+        color: var(--pg-amber);
+      }
+      .subline {
+        font-family: var(--font-mono);
+        font-size: 24px;
+        color: var(--pg-ink-muted);
+        margin-top: 40px;
+        letter-spacing: 0.04em;
+        line-height: 1.5;
+      }
+      .subline .hl {
+        color: var(--pg-amber);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide tech" data-screen-label="01 Cover">
+      <div class="top">
+        <span>AI · <span class="tag">WORKFLOW</span></span>
+        <span>~/slvis</span>
+      </div>
+
+      <div style="position: relative">
+        <div class="terminal-prompt">
+          $ <span class="cmd">/daily</span><span class="cursor"></span>
+        </div>
+        <h1>
+          아침에 <span class="mono">/daily</span><br />
+          한 번 치면<br />
+          끝나는 것 <span class="accent">3가지</span>
+        </h1>
+        <div class="subline">
+          내 전용 AI 비서 <span class="hl">SLVIS</span> 이야기
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>@codemom.life</span>
+        <span class="swipe"># 01 / 07 &nbsp;&nbsp; SWIPE →</span>
+      </div>
+    </div>
+  </body>
+</html>

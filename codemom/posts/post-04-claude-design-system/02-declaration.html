@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>02 · 선언 — Claude 로만</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide.dark {
+        background: #0e0d0a;
+        color: #f2ece0;
+        padding: 96px 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .slide.dark::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(232, 185, 96, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(232, 185, 96, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #a89c82;
+        position: relative;
+      }
+      .top .eyebrow {
+        color: #e8b960;
+        text-transform: none;
+        letter-spacing: 0.06em;
+        font-weight: 500;
+      }
+      .top .eyebrow .em {
+        color: #6b6150;
+        margin-right: 10px;
+      }
+
+      .body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .qmark {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 200px;
+        line-height: 0.7;
+        color: #e8b960;
+      }
+      blockquote {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 96px;
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        margin: 0;
+        color: #f2ece0;
+      }
+      blockquote .strike {
+        position: relative;
+        display: inline-block;
+        color: #a89c82;
+      }
+      blockquote .strike::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        right: -4px;
+        top: 58%;
+        height: 8px;
+        background: #e07856;
+        transform: rotate(-2deg);
+      }
+      blockquote .claude {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 80px;
+        color: #e8b960;
+        background: rgba(232, 185, 96, 0.1);
+        padding: 2px 14px;
+        border-radius: 10px;
+        letter-spacing: 0;
+      }
+      blockquote .soft {
+        color: #a89c82;
+        font-weight: 600;
+        font-size: 74px;
+        letter-spacing: -0.02em;
+      }
+
+      .attrib {
+        font-family: var(--font-mono);
+        font-size: 18px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #6b6150;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 28px;
+      }
+      .attrib .line {
+        width: 56px;
+        height: 1px;
+        background: #e8b960;
+      }
+      .attrib b {
+        color: #a89c82;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+      .attrib .brand {
+        color: #e8b960;
+        font-weight: 500;
+      }
+
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        color: #6b6150;
+        letter-spacing: 0.08em;
+        position: relative;
+      }
+      .foot .page {
+        color: #e8b960;
+      }
+      .foot .swipe {
+        color: #e8b960;
+      }
+      .foot .sep {
+        color: #3a342a;
+        margin: 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide dark" data-screen-label="02 Declaration">
+      <div class="top">
+        <span
+          ><span class="em">—</span><span class="eyebrow">이번엔</span></span
+        >
+        <span>QUOTE · 02</span>
+      </div>
+
+      <div class="body">
+        <div class="qmark">"</div>
+        <blockquote>
+          <span class="strike">Figma</span> 없이<br />
+          <span class="strike">Canva</span> 없이<br />
+          <span class="claude">Claude</span
+          ><span class="soft"> 로만 다 해봤어요.</span>
+        </blockquote>
+        <div class="attrib">
+          <span class="line"></span>
+          <span
+            >TOOL · <span class="brand">CLAUDE DESIGN</span> · ANTHROPIC
+            LABS</span
+          >
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span
+          ><span class="page"># 02 / 08</span><span class="sep">·</span
+          ><span class="swipe">SWIPE →</span></span
+        >
+      </div>
+    </div>
+  </body>
+</html>

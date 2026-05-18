@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>06 · Skill 2 — explore-plan-code (커밋 분할까지)</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 60px 60px;
+      }
+
+      .title-block {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        top: 130px;
+        z-index: 5;
+      }
+      .title-block .skill-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 20px;
+        color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.1);
+        padding: 6px 14px;
+        border-radius: 8px;
+        letter-spacing: 0.02em;
+        margin-bottom: 16px;
+      }
+      .title-block .skill-chip .num {
+        color: var(--pg-dark-fg-muted);
+        font-weight: 700;
+      }
+      .title-block h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 56px;
+        line-height: 1.06;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: var(--pg-dark-fg);
+      }
+      .title-block h2 .hl {
+        color: var(--pg-amber);
+      }
+
+      /* 4-stage horizontal flow */
+      .flow {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        top: 320px;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: 1fr 24px 1fr 24px 1fr 24px 1fr;
+        align-items: stretch;
+        gap: 0;
+      }
+      .stage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px 10px;
+        background: var(--pg-dark-surface);
+        border: 1px solid var(--pg-line);
+        border-radius: 14px;
+        gap: 6px;
+        min-height: 140px;
+        justify-content: center;
+      }
+      .stage.highlight {
+        border-color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.07);
+        box-shadow: 0 0 0 3px rgba(232, 185, 96, 0.12);
+      }
+      .stage .idx {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        color: var(--pg-dark-fg-subtle);
+        text-transform: uppercase;
+      }
+      .stage .name {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 26px;
+        color: var(--pg-dark-fg);
+        letter-spacing: 0;
+        line-height: 1;
+      }
+      .stage.highlight .name {
+        color: var(--pg-amber);
+      }
+      .stage .note {
+        font-family: var(--font-sans);
+        font-size: 15px;
+        color: var(--pg-dark-fg-muted);
+        line-height: 1.35;
+        text-align: center;
+        margin-top: 2px;
+      }
+      .stage .note b {
+        color: var(--pg-amber);
+        font-weight: 700;
+      }
+      .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        color: var(--pg-dark-fg-subtle);
+      }
+
+      /* Callout — "Plan이 남기는 것" */
+      .callout {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        top: 520px;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+      }
+      .callout .box {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 22px;
+        background: rgba(232, 185, 96, 0.08);
+        border: 1px solid rgba(232, 185, 96, 0.3);
+        border-radius: 10px;
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 22px;
+        color: var(--pg-dark-fg);
+      }
+      .callout .box code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        color: var(--pg-amber);
+        font-weight: 700;
+      }
+      .callout .box .arrow-down {
+        color: var(--pg-amber);
+        font-size: 24px;
+      }
+
+      /* Commit breakdown table */
+      .table-wrap {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        top: 610px;
+        z-index: 5;
+        border: 1px solid var(--pg-line);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--pg-dark-surface);
+      }
+      .tr {
+        display: grid;
+        grid-template-columns: 70px 1fr 130px 90px;
+        align-items: center;
+      }
+      .th {
+        background: rgba(232, 185, 96, 0.1);
+        padding: 14px 20px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--pg-amber);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--pg-line);
+      }
+      .td {
+        padding: 18px 20px;
+        font-family: var(--font-sans);
+        font-size: 20px;
+        color: var(--pg-dark-fg);
+        border-bottom: 1px solid var(--pg-line);
+        line-height: 1.3;
+      }
+      .tr:last-child .td {
+        border-bottom: none;
+      }
+      .td.num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--pg-amber);
+      }
+      .td.title code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 17px;
+        background: var(--pg-dark-surface-2);
+        padding: 1px 6px;
+        border-radius: 4px;
+        color: var(--pg-dark-fg);
+      }
+      .td.risk {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .td.risk.low {
+        color: var(--pg-green);
+      }
+      .td.risk.mid {
+        color: var(--pg-amber);
+      }
+      .td.dep {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--pg-dark-fg-muted);
+        font-size: 18px;
+      }
+
+      /* Subline bullets */
+      .bullets {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        top: 970px;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        font-family: var(--font-sans);
+        font-size: 18px;
+        color: var(--pg-dark-fg-muted);
+      }
+      .bullets .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .bullets .dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--pg-amber);
+      }
+
+      .source {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        bottom: 110px;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        color: var(--pg-dark-fg-subtle);
+      }
+      .source b {
+        color: var(--pg-amber);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="slide"
+      data-screen-label="06 Skill 2 — explore-plan-code + commit"
+    >
+      <div class="grid-bg"></div>
+
+      <div class="top">
+        <span>SKILL <span class="tag">2</span></span>
+        <span>FLOW + OUTPUT · 06</span>
+      </div>
+
+      <div class="title-block">
+        <div class="skill-chip">
+          <span class="num">02 ·</span> explore-plan-code
+        </div>
+        <h2><span class="hl">어떻게</span> 만들지 — 커밋 분할까지</h2>
+      </div>
+
+      <div class="flow">
+        <div class="stage">
+          <div class="idx">STAGE · 1</div>
+          <div class="name">Explore</div>
+          <div class="note">읽기만<br />수정 금지</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="stage highlight">
+          <div class="idx">STAGE · 2</div>
+          <div class="name">Plan</div>
+          <div class="note">변경 파일 · 흐름<br /><b>+ 커밋 분할</b></div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="stage">
+          <div class="idx">STAGE · 3</div>
+          <div class="name">Code</div>
+          <div class="note">plan 기준<br />구현</div>
+        </div>
+        <div class="arrow">→</div>
+
+        <div class="stage">
+          <div class="idx">STAGE · 4</div>
+          <div class="name">Commit</div>
+          <div class="note">plan 단위대로<br />"왜"를 설명</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="box">
+          <code>Plan</code>이 남기는 것
+          <span class="arrow-down">↓</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="tr">
+          <div class="th">#</div>
+          <div class="th">커밋</div>
+          <div class="th">리스크</div>
+          <div class="th">의존</div>
+        </div>
+        <div class="tr">
+          <div class="td num">1</div>
+          <div class="td title"><code>OverlayFontFamily</code>로 리네이밍</div>
+          <div class="td risk low">낮음</div>
+          <div class="td dep">—</div>
+        </div>
+        <div class="tr">
+          <div class="td num">2</div>
+          <div class="td title">저장소 · 렌더 파이프 연결</div>
+          <div class="td risk mid">중</div>
+          <div class="td dep">1</div>
+        </div>
+        <div class="tr">
+          <div class="td num">3</div>
+          <div class="td title">설정 UI 붙이기 (세그먼트·슬라이더)</div>
+          <div class="td risk mid">중</div>
+          <div class="td dep">2</div>
+        </div>
+      </div>
+
+      <div class="bullets">
+        <span class="pill"><span class="dot"></span>리뷰어 친화</span>
+        <span class="pill"><span class="dot"></span>롤백 지점</span>
+        <span class="pill"><span class="dot"></span>리스크 가시화</span>
+      </div>
+
+      <div class="source">
+        <span>출처 →</span>
+        <b>dailyclip / docs/plans/2026-04-23-overlay-font-size-controls.md</b>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span>
+          <span class="page"># 06 / 08</span>
+          <span class="sep">·</span>
+          <span class="swipe">SWIPE →</span>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

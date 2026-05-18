@@ -1,0 +1,112 @@
+/* Post 04 — Claude Design system showcase — shared tokens */
+@import url("../../colors_and_type.css");
+
+:root {
+  --pg-bg: #faf7f2;
+  --pg-surface: #f2ece0;
+  --pg-surface-2: #e8dfca;
+  --pg-ink: #2e2a22;
+  --pg-ink-muted: #6b6150;
+  --pg-ink-subtle: #8a7e68;
+  --pg-line: #d9cfb8;
+  --pg-accent: #c4461f;
+  --pg-highlight: #f4e4c1;
+  --pg-dark: #0e0d0a;
+  --pg-dark-surface: #17150f;
+  --pg-dark-surface-2: #22201a;
+  --pg-amber: #e8b960;
+  --pg-green: #7fb069;
+  --pg-dark-fg: #f2ece0;
+  --pg-dark-fg-muted: #a89c82;
+  --pg-dark-fg-subtle: #6b6150;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.slide {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+/* Series label — top-left, consistent across all slides */
+.series {
+  position: absolute;
+  top: 44px;
+  left: 72px;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--pg-ink-subtle);
+  text-transform: uppercase;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.series .tag {
+  color: var(--pg-accent);
+  font-weight: 500;
+}
+
+.page-num {
+  position: absolute;
+  top: 44px;
+  right: 72px;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--pg-ink-subtle);
+}
+.page-num b {
+  color: var(--pg-accent);
+  font-weight: 500;
+}
+
+.footer {
+  position: absolute;
+  bottom: 44px;
+  left: 72px;
+  right: 72px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--pg-ink-subtle);
+}
+.footer .swipe {
+  color: var(--pg-accent);
+}
+
+/* TECH theme overrides */
+.slide.dark {
+  background: var(--pg-dark);
+  color: var(--pg-dark-fg);
+}
+.slide.dark .series,
+.slide.dark .page-num,
+.slide.dark .footer {
+  color: var(--pg-dark-fg-subtle);
+}
+.slide.dark .series .tag {
+  color: var(--pg-amber);
+}
+.slide.dark .page-num b {
+  color: var(--pg-amber);
+}
+.slide.dark .footer .swipe {
+  color: var(--pg-amber);
+}

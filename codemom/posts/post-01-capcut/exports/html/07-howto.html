@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>07 HowTo — 찍고. 쓰고. 끝.</title>
+<link rel="stylesheet" href="../../post.css"/>
+<style>
+  .slide { background: var(--pg-bg); color: var(--pg-ink); }
+  .body { position:absolute; left:72px; right:72px; top:180px; bottom:140px; display:flex; flex-direction:column; gap:48px; }
+
+  .section-title {
+    font-family: var(--font-mono);
+    font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--pg-ink-subtle);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-title .line { width: 40px; height: 1px; background: var(--pg-accent); }
+
+  h2 {
+    font-family: var(--font-sans);
+    font-weight: 800; font-size: 96px; line-height: 1.0;
+    letter-spacing: -0.045em; margin: 0;
+  }
+  h2 .dot { color: var(--pg-accent); }
+  h2 .thin { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--pg-ink-muted); }
+
+  .steps { display: flex; flex-direction: column; gap: 18px; }
+  .step {
+    background: var(--pg-surface);
+    border-radius: 18px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 72px 76px 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .step .n {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 56px;
+    color: var(--pg-accent);
+    letter-spacing: -0.04em;
+  }
+  .step .ico {
+    width: 76px; height: 76px;
+    background: var(--pg-bg);
+    border: 1.5px solid var(--pg-line);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step .ico svg { width: 44px; height: 44px; }
+  .step .head {
+    font-family: var(--font-sans);
+    font-weight: 700; font-size: 34px;
+    line-height: 1.25; letter-spacing: -0.02em;
+    margin: 0 0 4px;
+  }
+  .step .desc {
+    font-family: var(--font-sans);
+    font-weight: 400; font-size: 22px;
+    line-height: 1.4; color: var(--pg-ink-muted);
+    margin: 0;
+  }
+
+  .coda {
+    margin-top: auto;
+    padding: 22px 28px;
+    border: 2px dashed var(--pg-line);
+    border-radius: 14px;
+    font-family: var(--font-sans);
+    font-weight: 500; font-size: 26px;
+    color: var(--pg-ink-muted);
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+  .coda b { color: var(--pg-ink); font-weight: 700; }
+  .coda .strike { text-decoration: line-through; text-decoration-color: var(--pg-accent); text-decoration-thickness: 2px; }
+
+  /* EXPORT OVERRIDE */
+  html, body { width:1080px !important; height:1350px !important; background:#FAF7F2 !important; display:block !important; overflow:hidden !important; }
+  .slide { position:absolute !important; top:0 !important; left:0 !important; width:1080px !important; height:1350px !important; }
+  
+</style></head>
+<body>
+<div class="slide" data-screen-label="07 HowTo">
+  <div class="series">
+    <span class="bracket">&lt;codemom&gt;</span>
+    <span class="name">코드맘이만든앱</span>
+  </div>
+  <div class="page-num">07 / <b>08</b></div>
+
+  <div class="body">
+    <div>
+      <div class="section-title"><span class="line"></span>How it works</div>
+      <h2 style="margin-top: 20px;">찍고<span class="dot">.</span> 쓰고<span class="dot">.</span> <span class="thin">끝.</span></h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="ico">
+          <!-- camera / record -->
+          <svg viewBox="0 0 44 44" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="12" width="28" height="22" rx="4"/>
+            <circle cx="19" cy="23" r="5" fill="#C4461F" stroke="none"/>
+            <path d="M33 18 L40 14 L40 32 L33 28"/>
+          </svg>
+        </div>
+        <div>
+          <p class="head">하루 중 짧은 순간을 찍고</p>
+          <p class="desc">5초여도 괜찮아요. 그냥 카메라만 켜면 돼요.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="n">02</div>
+        <div class="ico">
+          <!-- caption / pencil on text -->
+          <svg viewBox="0 0 44 44" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 14 H30"/>
+            <path d="M6 22 H24"/>
+            <path d="M6 30 H18"/>
+            <path d="M30 24 L38 16 L42 20 L34 28 L28 30 L30 24Z" fill="#F4E4C1"/>
+          </svg>
+        </div>
+        <div>
+          <p class="head">한 줄 캡션을 쓰고</p>
+          <p class="desc">"오늘 처음 웃었다" 이 한 줄이면 충분해요.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="n">03</div>
+        <div class="ico">
+          <!-- export / arrow out of box -->
+          <svg viewBox="0 0 44 44" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 26 V34 a2 2 0 0 0 2 2 H34 a2 2 0 0 0 2 -2 V26"/>
+            <path d="M22 8 V26"/>
+            <path d="M14 16 L22 8 L30 16"/>
+          </svg>
+        </div>
+        <div>
+          <p class="head">내보내기 누르면 완성</p>
+          <p class="desc">브이로그 한 편이 30초 안에 나와요.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="coda">
+      <span class="strike">타임라인</span>&nbsp; <span class="strike">트랜지션</span>&nbsp; <span class="strike">자막싱크</span><br/>
+      진짜 <b>이게 끝</b>이에요.
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>@codemom.life</span>
+    <span>SWIPE →</span>
+  </div>
+</div>
+</body></html>

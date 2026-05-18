@@ -1,0 +1,64 @@
+/* Post 01 — #코드맘이만든앱 (1/5) — shared tokens */
+@import url("../../colors_and_type.css");
+
+:root {
+  --pg-bg: #FAF7F2;
+  --pg-surface: #F2ECE0;
+  --pg-surface-2: #E8DFCA;
+  --pg-ink: #2E2A22;
+  --pg-ink-muted: #6B6150;
+  --pg-ink-subtle: #8A7E68;
+  --pg-line: #D9CFB8;
+  --pg-accent: #C4461F;
+  --pg-highlight: #F4E4C1;
+  --pg-dark: #0E0D0A;
+  --pg-dark-surface: #17150F;
+  --pg-amber: #E8B960;
+}
+
+html, body {
+  margin: 0; padding: 0;
+  background: #111;
+  display: flex; justify-content: center; align-items: center;
+  min-height: 100vh;
+}
+
+.slide {
+  width: 1080px; height: 1350px;
+  position: relative; overflow: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+/* Series label — top-left signature, same on every slide */
+.series {
+  position: absolute; top: 44px; left: 72px;
+  font-family: var(--font-mono);
+  font-size: 18px; letter-spacing: 0.12em;
+  color: var(--pg-ink-subtle);
+  display: flex; gap: 10px; align-items: center;
+}
+.series .bracket { opacity: 0.55; }
+.series .name { color: var(--pg-accent); font-weight: 500; }
+
+.page-num {
+  position: absolute; top: 44px; right: 72px;
+  font-family: var(--font-mono);
+  font-size: 18px; letter-spacing: 0.12em;
+  color: var(--pg-ink-subtle);
+}
+.page-num b { color: var(--pg-accent); font-weight: 500; }
+
+.footer {
+  position: absolute; bottom: 44px; left: 72px; right: 72px;
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 16px; letter-spacing: 0.08em;
+  color: var(--pg-ink-subtle);
+}
+
+/* Dark theme overrides (slide 6) */
+.slide.dark .series, .slide.dark .page-num, .slide.dark .footer { color: #6B6150; }
+.slide.dark .series .name { color: var(--pg-amber); }
+.slide.dark .page-num b { color: var(--pg-amber); }

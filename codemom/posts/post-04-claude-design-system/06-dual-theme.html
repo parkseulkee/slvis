@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>06 · Dual-Theme</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        background: #faf7f2;
+        color: #2e2a22;
+        padding: 80px 72px 110px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(46, 42, 34, 0.04) 1px,
+          transparent 1px
+        );
+        background-size: 4px 4px;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8a7e68;
+        position: relative;
+      }
+      .top .tag {
+        color: #c4461f;
+      }
+
+      h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: #2e2a22;
+        position: relative;
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      h2 em {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: #c4461f;
+      }
+      h2 .sub {
+        display: block;
+        flex-basis: 100%;
+        margin-top: 14px;
+        font-family: var(--font-mono);
+        font-size: 22px;
+        font-weight: 500;
+        color: #8a7e68;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .compare {
+        position: relative;
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: center;
+      }
+      .col {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow:
+          0 1px 2px rgba(46, 42, 34, 0.05),
+          0 12px 36px rgba(46, 42, 34, 0.08);
+        background: #fff;
+        border: 1px solid #e8dfca;
+      }
+      .col .thumb {
+        aspect-ratio: 1080 / 1350;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+      .col.tech {
+        background: #17150f;
+        border-color: #22201a;
+      }
+      .col .meta {
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 15px;
+        letter-spacing: 0.08em;
+      }
+      .col .meta .mode {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 13px;
+      }
+      .col .meta .hex {
+        color: #6b6150;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+      }
+      .col.life .meta {
+        background: #faf7f2;
+        color: #2e2a22;
+        border-top: 1px solid #e8dfca;
+      }
+      .col.life .meta .mode {
+        color: #c4461f;
+      }
+      .col.tech .meta {
+        background: #0e0d0a;
+        color: #f2ece0;
+        border-top: 1px solid #22201a;
+      }
+      .col.tech .meta .mode {
+        color: #e8b960;
+      }
+      .col.tech .meta .hex {
+        color: #a89c82;
+      }
+
+      /* Centered separator */
+      .divider {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: #faf7f2;
+        border: 2px solid #2e2a22;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 40px;
+        color: #2e2a22;
+        letter-spacing: -0.02em;
+        box-shadow: 0 6px 20px rgba(46, 42, 34, 0.15);
+      }
+
+      .dna-row {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        background: #f2ece0;
+        border: 1px solid #e8dfca;
+        border-radius: 16px;
+        font-family: var(--font-mono);
+        font-size: 15px;
+        letter-spacing: 0.08em;
+        color: #6b6150;
+      }
+      .dna-row .label {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 13px;
+        color: #8a7e68;
+      }
+      .dna-row .value {
+        color: #2e2a22;
+        font-weight: 500;
+      }
+      .dna-row .value .k {
+        color: #c4461f;
+      }
+
+      .foot {
+        position: absolute;
+        bottom: 44px;
+        left: 72px;
+        right: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        color: #8a7e68;
+        letter-spacing: 0.08em;
+      }
+      .foot .page {
+        color: #c4461f;
+      }
+      .foot .swipe {
+        color: #c4461f;
+      }
+      .foot .sep {
+        color: #d9cfb8;
+        margin: 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="06 Dual-Theme">
+      <div class="top">
+        <span>RESULT <span class="tag">·</span> C</span>
+        <span>DUAL-THEME</span>
+      </div>
+
+      <h2>
+        같은 시스템<em>,</em> 다른 옷.
+        <span class="sub">한 DNA · 두 톤 · 축에 따라 골라 써요</span>
+      </h2>
+
+      <div class="compare">
+        <div class="col life">
+          <div
+            class="thumb"
+            style="
+              background-image: url(&quot;assets/post01-thumbs/t-01-cover.png&quot;);
+            "
+          ></div>
+          <div class="meta">
+            <span class="mode">LIFE</span>
+            <span class="hex">post-01 · #FAF7F2</span>
+          </div>
+        </div>
+        <div class="divider">↔</div>
+        <div class="col tech">
+          <div
+            class="thumb"
+            style="
+              background-image: url(&quot;assets/post02-thumbs/t-01-cover.png&quot;);
+            "
+          ></div>
+          <div class="meta">
+            <span class="mode">TECH</span>
+            <span class="hex">post-02 · #0E0D0A</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dna-row">
+        <span class="label">SHARED</span>
+        <span class="value">
+          <span class="k">Warm Black</span> · Space Grotesk · Pretendard ·
+          JetBrains Mono · 1080 × 1350
+        </span>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span
+          ><span class="page"># 06 / 08</span><span class="sep">·</span
+          ><span class="swipe">SWIPE →</span></span
+        >
+      </div>
+    </div>
+  </body>
+</html>

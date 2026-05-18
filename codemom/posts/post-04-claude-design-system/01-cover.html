@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>01 · Cover — Claude Design system</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide.dark {
+        background: #0e0d0a;
+        color: #f2ece0;
+      }
+
+      /* TECH grid baseline */
+      .grid {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image:
+          linear-gradient(rgba(232, 185, 96, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(232, 185, 96, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+      }
+
+      /* Posts mural — 3 real post-02 slides as the evidence backdrop */
+      .posts-mural {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 520px;
+        bottom: 0;
+        z-index: 1;
+        opacity: 0.32;
+        pointer-events: none;
+        mask-image: linear-gradient(
+          180deg,
+          transparent 0%,
+          #000 22%,
+          #000 92%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          180deg,
+          transparent 0%,
+          #000 22%,
+          #000 92%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+      }
+      .thumb-card {
+        position: absolute;
+        width: 360px;
+        height: 450px;
+        border-radius: 18px;
+        border: 1px solid #22201a;
+        overflow: hidden;
+        background-color: #0e0d0a;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        box-shadow: 0 12px 40px rgba(14, 13, 10, 0.55);
+      }
+      .thumb-card.a {
+        left: 44px;
+        top: 80px;
+        z-index: 1;
+      }
+      .thumb-card.b {
+        left: 360px;
+        top: 0;
+        z-index: 3;
+      }
+      .thumb-card.c {
+        left: 676px;
+        top: 80px;
+        z-index: 2;
+      }
+
+      /* Top label */
+      .top {
+        position: absolute;
+        top: 64px;
+        left: 72px;
+        right: 72px;
+        z-index: 5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #a89c82;
+      }
+      .top .tag {
+        color: #e8b960;
+        margin: 0 2px;
+      }
+
+      /* Hero block — sits in upper third, title above mural */
+      .hero {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 168px;
+        z-index: 5;
+      }
+      .prompt {
+        font-family: var(--font-mono);
+        font-size: 22px;
+        color: #7fb069;
+        letter-spacing: 0.04em;
+        margin-bottom: 28px;
+      }
+      .prompt .cursor {
+        display: inline-block;
+        width: 14px;
+        height: 22px;
+        background: #e8b960;
+        vertical-align: -3px;
+        margin-left: 4px;
+        animation: blink 1s infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      h1 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 82px;
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+        margin: 0;
+        color: #f2ece0;
+      }
+      h1 .tool {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 70px;
+        color: #e8b960;
+        background: rgba(232, 185, 96, 0.1);
+        padding: 4px 14px;
+        border-radius: 10px;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .subline {
+        margin-top: 28px;
+        font-family: var(--font-mono);
+        font-size: 22px;
+        color: #a89c82;
+        letter-spacing: 0.08em;
+      }
+      .subline .dot {
+        color: #e8b960;
+        margin: 0 10px;
+      }
+
+      /* Caption above footer — labels the mural as real posts */
+      .caption {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 120px;
+        z-index: 4;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-family: var(--font-mono);
+        font-size: 16px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(168, 156, 130, 0.65);
+      }
+      .caption .mark {
+        color: rgba(232, 185, 96, 0.75);
+      }
+      .caption .ref {
+        color: rgba(168, 156, 130, 0.55);
+      }
+
+      /* Footer */
+      .foot {
+        position: absolute;
+        bottom: 56px;
+        left: 72px;
+        right: 72px;
+        z-index: 5;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        color: #6b6150;
+        letter-spacing: 0.08em;
+      }
+      .foot .page {
+        color: #e8b960;
+      }
+      .foot .swipe {
+        color: #e8b960;
+      }
+      .foot .sep {
+        color: #3a342a;
+        margin: 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide dark" data-screen-label="01 Cover TECH · posts mural">
+      <div class="grid"></div>
+
+      <div class="posts-mural">
+        <div
+          class="thumb-card a"
+          style="
+            background-image: url(&quot;assets/post02-thumbs/t-01-cover.png&quot;);
+          "
+        ></div>
+        <div
+          class="thumb-card b"
+          style="
+            background-image: url(&quot;assets/post02-thumbs/t-05-list.png&quot;);
+          "
+        ></div>
+        <div
+          class="thumb-card c"
+          style="
+            background-image: url(&quot;assets/post02-thumbs/t-07-cta.png&quot;);
+          "
+        ></div>
+      </div>
+
+      <div class="top">
+        <span>AI <span class="tag">·</span> DESIGN SYSTEM</span>
+        <span>~/codemom</span>
+      </div>
+
+      <div class="hero">
+        <div class="prompt">$ claude design<span class="cursor"></span></div>
+        <h1>
+          <span class="tool">Claude Design</span>으로<br />
+          1시간 만에 만든<br />
+          인스타 카드뉴스 시스템
+        </h1>
+        <div class="subline">
+          1080 × 1350<span class="dot">·</span>템플릿 12종
+        </div>
+      </div>
+
+      <div class="caption">
+        <span><span class="mark">↓</span> POSTS FROM THIS SYSTEM</span>
+        <span class="ref">@codemom.life / post-02</span>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span
+          ><span class="page"># 01 / 08</span><span class="sep">·</span
+          ><span class="swipe">SWIPE →</span></span
+        >
+      </div>
+    </div>
+  </body>
+</html>

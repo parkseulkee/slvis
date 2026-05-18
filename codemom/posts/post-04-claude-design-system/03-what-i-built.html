@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>03 · What I Built</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        background: #faf7f2;
+        color: #2e2a22;
+        padding: 96px 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Subtle paper grain for LIFE mode */
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(46, 42, 34, 0.04) 1px,
+          transparent 1px
+        );
+        background-size: 4px 4px;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+      /* Terracotta dashed divider above title */
+      .divider {
+        position: absolute;
+        left: 72px;
+        top: 480px;
+        width: 120px;
+        height: 2px;
+        background: repeating-linear-gradient(
+          90deg,
+          #c4461f 0 10px,
+          transparent 10px 18px
+        );
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8a7e68;
+        position: relative;
+      }
+      .top .tag {
+        color: #c4461f;
+      }
+
+      .hero-wrap {
+        position: relative;
+        margin-top: 60px;
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #c4461f;
+        margin-bottom: 28px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .eyebrow .tick {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: #c4461f;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 108px;
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+        margin: 0;
+        color: #2e2a22;
+      }
+      h1 em {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: #c4461f;
+      }
+      h1 .em-dash {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        color: #c4461f;
+        letter-spacing: -0.05em;
+      }
+
+      .sub {
+        margin-top: 44px;
+        font-family: var(--font-mono);
+        font-size: 24px;
+        letter-spacing: 0.08em;
+        color: #6b6150;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .sub .tok {
+        background: #f2ece0;
+        border: 1px solid #e8dfca;
+        padding: 6px 14px;
+        border-radius: 999px;
+        color: #2e2a22;
+        font-size: 20px;
+      }
+      .sub .dot {
+        color: #c4461f;
+      }
+
+      .bottom-meta {
+        position: relative;
+      }
+      .stat-hero {
+        background: #fff;
+        border: 1px solid #e8dfca;
+        border-radius: 22px;
+        padding: 32px 36px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 48px;
+        align-items: center;
+        box-shadow:
+          0 1px 2px rgba(46, 42, 34, 0.04),
+          0 8px 24px rgba(46, 42, 34, 0.06);
+      }
+      .stat-hero .left .pre {
+        font-family: var(--font-mono);
+        font-size: 16px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #8a7e68;
+        margin-bottom: 10px;
+      }
+      .stat-hero .left .big {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .stat-hero .left .num {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 140px;
+        line-height: 0.88;
+        color: #c4461f;
+        letter-spacing: -0.06em;
+      }
+      .stat-hero .left .unit {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 56px;
+        line-height: 0.9;
+        color: #2e2a22;
+        letter-spacing: -0.025em;
+      }
+      .stat-hero .bar {
+        width: 1px;
+        height: 140px;
+        background: #e8dfca;
+      }
+      .stat-hero .breakdown {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .stat-hero .breakdown .row {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 24px;
+        color: #2e2a22;
+        letter-spacing: -0.015em;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+      }
+      .stat-hero .breakdown .dash {
+        color: #c4461f;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+      }
+      .stat-hero .breakdown .row code {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 600;
+        font-size: 21px;
+        background: #f4e4c1;
+        padding: 2px 10px;
+        border-radius: 6px;
+        letter-spacing: 0;
+        color: #2e2a22;
+      }
+      .stat-hero .breakdown .mute {
+        color: #6b6150;
+        font-weight: 500;
+      }
+
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        color: #8a7e68;
+        letter-spacing: 0.08em;
+        position: relative;
+      }
+      .foot .page {
+        color: #c4461f;
+      }
+      .foot .swipe {
+        color: #c4461f;
+      }
+      .foot .sep {
+        color: #d9cfb8;
+        margin: 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="03 What I Built (LIFE entry)">
+      <div class="top">
+        <span>WHAT I BUILT <span class="tag">·</span> ~1h</span>
+        <span>LIFE · RESULT</span>
+      </div>
+
+      <div class="hero-wrap">
+        <div class="eyebrow"><span class="tick">◆</span> RESULT</div>
+        <h1>
+          나온 것 <span class="em-dash">—</span><br />
+          디자인 시스템<br />
+          <em>한 벌.</em>
+        </h1>
+        <div class="sub">
+          <span class="tok">tokens</span>
+          <span class="dot">·</span>
+          <span class="tok">type</span>
+          <span class="dot">·</span>
+          <span class="tok">12 templates</span>
+        </div>
+      </div>
+
+      <div class="bottom-meta">
+        <div class="stat-hero">
+          <div class="left">
+            <div class="pre">걸린 시간</div>
+            <div class="big">
+              <span class="num">1</span>
+              <span class="unit">시간</span>
+            </div>
+          </div>
+          <div class="breakdown">
+            <div class="row">
+              <span class="dash">—</span>
+              <span
+                >0에서 <span class="mute">디자인 시스템 한 벌까지</span></span
+              >
+            </div>
+            <div class="row">
+              <span class="dash">—</span>
+              <span
+                ><span class="mute">Figma · Canva 없이</span>
+                <code>Claude</code> 하나로</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span
+          ><span class="page"># 03 / 08</span><span class="sep">·</span
+          ><span class="swipe">SWIPE →</span></span
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Post 02 / 05 — List Top 3</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 72px 72px 64px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 68px;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: var(--pg-ink);
+      }
+      h2 em {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: var(--pg-amber);
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: relative;
+      }
+      .item {
+        background: var(--pg-surface);
+        border: 1px solid var(--pg-line);
+        border-radius: 20px;
+        padding: 30px 32px;
+        display: flex;
+        gap: 28px;
+        align-items: flex-start;
+      }
+      .num {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 0.9;
+        color: var(--pg-amber);
+        letter-spacing: -0.04em;
+        min-width: 72px;
+      }
+      .item h3 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 36px;
+        margin: 0 0 10px;
+        color: var(--pg-ink);
+        letter-spacing: -0.02em;
+      }
+      .item p {
+        font-family: var(--font-sans);
+        font-size: 24px;
+        line-height: 1.45;
+        margin: 0;
+        color: var(--pg-ink-muted);
+      }
+      .item .tag {
+        font-family: var(--font-mono);
+        font-size: 16px;
+        color: var(--pg-amber);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-top: 12px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide tech" data-screen-label="05 List Top 3">
+      <div class="top">
+        <span>WHAT · <span class="tag">YOU GET</span></span>
+        <span># 05 / 07</span>
+      </div>
+
+      <h2>브리핑 한 장에<br />담기는 <em>것</em></h2>
+
+      <div class="stack">
+        <div class="item">
+          <div class="num">01</div>
+          <div>
+            <h3>오늘의 일정</h3>
+            <p>개인·가족·공휴일 한 번에 정리돼요.</p>
+            <span class="tag">CALENDAR</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">02</div>
+          <div>
+            <h3>AI·기술 뉴스</h3>
+            <p>개발자가 볼 만한 3~5개만 선별해서.</p>
+            <span class="tag">TECH NEWS</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">03</div>
+          <div>
+            <h3>경제·정치 뉴스</h3>
+            <p>출처 있는 주요 소식 3~5개.</p>
+            <span class="tag">MARKET · POLICY</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer" style="margin-top: auto">
+        <span>@codemom.life</span>
+        <span class="swipe">SWIPE →</span>
+      </div>
+    </div>
+  </body>
+</html>

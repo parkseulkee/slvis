@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>05 Twist — 그런데 저, 9년차 개발자거든요</title>
+<link rel="stylesheet" href="../../post.css"/>
+<style>
+  .slide { background: var(--pg-bg); color: var(--pg-ink); }
+  .body { position:absolute; left:72px; right:72px; top:200px; bottom:140px; display:flex; flex-direction:column; justify-content: center; gap: 72px; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 20px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--pg-ink-subtle);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .eyebrow .line { width: 40px; height: 1px; background: var(--pg-accent); }
+
+  .hero {
+    font-family: var(--font-sans);
+    margin: 0;
+  }
+  .hero .prelude {
+    display: block;
+    font-weight: 500;
+    font-size: 44px;
+    color: var(--pg-ink-muted);
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero .line-main {
+    display: block;
+    font-weight: 800;
+    font-size: 104px;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    color: var(--pg-ink);
+  }
+  .hero .line-main .num {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--pg-accent);
+  }
+  .hero .line-main .years {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--pg-accent);
+  }
+
+  /* Quote block — editorial, no rotation, no emoji */
+  .manifesto {
+    background: var(--pg-ink);
+    color: var(--pg-bg);
+    padding: 40px 48px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+    max-width: 820px;
+  }
+  .manifesto .qmark {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 0.6;
+    color: var(--pg-amber);
+    align-self: flex-start;
+    padding-top: 18px;
+  }
+  .manifesto .text {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+  .manifesto .text .hl { color: var(--pg-amber); }
+  .manifesto .attrib {
+    grid-column: 2;
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--pg-ink-subtle);
+  }
+
+  /* EXPORT OVERRIDE */
+  html, body { width:1080px !important; height:1350px !important; background:#FAF7F2 !important; display:block !important; overflow:hidden !important; }
+  .slide { position:absolute !important; top:0 !important; left:0 !important; width:1080px !important; height:1350px !important; }
+  
+</style></head>
+<body>
+<div class="slide" data-screen-label="05 Twist">
+  <div class="series">
+    <span class="bracket">&lt;codemom&gt;</span>
+    <span class="name">코드맘이만든앱</span>
+  </div>
+  <div class="page-num">05 / <b>08</b></div>
+
+  <div class="body">
+    <div>
+      <div class="eyebrow"><span class="line"></span>그런데</div>
+      <h2 class="hero" style="margin-top: 24px;">
+        <span class="prelude">저,</span>
+        <span class="line-main"><span class="years">9년차</span><br/>개발자거든요.</span>
+      </h2>
+    </div>
+
+    <div class="manifesto">
+      <span class="qmark">“</span>
+      <div>
+        <div class="text">없으면<br/><span class="hl">내가</span> 만들지 뭐.</div>
+        <div class="attrib">— 그날 밤의 결심</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>@codemom.life</span>
+    <span>SWIPE →</span>
+  </div>
+</div>
+</body></html>

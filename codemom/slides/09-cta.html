@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>CTA · 마무리</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide { background: #C4461F; color: #FAF7F2; padding: 96px 72px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+  .slide::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 20%, rgba(244,228,193,0.15), transparent 40%), radial-gradient(circle at 80% 80%, rgba(14,13,10,0.25), transparent 40%); }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,247,242,0.7); position: relative; }
+  .top .tag { color: #F4E4C1; }
+  .middle { position: relative; }
+  .kicker { font-family: var(--font-mono); font-size: 22px; letter-spacing: 0.1em; color: #F4E4C1; margin-bottom: 28px; text-transform: uppercase; }
+  h1 { font-family: var(--font-sans); font-weight: 800; font-size: 108px; line-height: 1.0; letter-spacing: -0.045em; margin: 0; color: #FAF7F2; }
+  h1 em { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-style: normal; }
+  .cta-row { margin-top: 72px; display: flex; flex-direction: column; gap: 24px; position: relative; }
+  .cta-item { display: flex; align-items: center; gap: 22px; font-family: var(--font-sans); font-size: 30px; font-weight: 500; line-height: 1.3; }
+  .cta-item .icn { width: 54px; height: 54px; border-radius: 50%; background: #FAF7F2; color: #C4461F; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cta-item .icn svg { width: 26px; height: 26px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .cta-item b { font-weight: 700; }
+  .footer { display: flex; justify-content: space-between; align-items: flex-end; position: relative; }
+  .handle { font-family: var(--font-mono); font-size: 28px; color: #FAF7F2; letter-spacing: -0.01em; }
+  .handle .dim { color: rgba(250,247,242,0.6); }
+</style></head>
+<body>
+<div class="slide" data-screen-label="09 CTA">
+  <div class="top"><span>CTA · <span class="tag">END</span></span><span># 08 / 08</span></div>
+  <div class="middle">
+    <div class="kicker">— 여기까지 봐주셔서</div>
+    <h1>고마<em>워요</em>.</h1>
+    <div class="cta-row">
+      <div class="cta-item">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+        <span><b>저장</b>해두고 새벽에 다시 보세요</span>
+      </div>
+      <div class="cta-item">
+        <div class="icn"><svg viewBox="0 0 24 24"><path d="M12 20.5c-5.5-4-8-7-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 4-2.5 7-8 11z"/></svg></div>
+        <span><b>공감</b>되셨다면 꾹 눌러주세요</span>
+      </div>
+      <div class="cta-item">
+        <div class="icn"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        <span>다음 글은 <b>AI로 앱 만든 과정</b></span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="handle"><span class="dim">@</span>codemom<span class="dim">.life</span></div>
+    <div style="font-family: var(--font-mono); color: rgba(250,247,242,0.7); font-size: 16px; letter-spacing: 0.1em;">FOLLOW →</div>
+  </div>
+</div>
+</body></html>

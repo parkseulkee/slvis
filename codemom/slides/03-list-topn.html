@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>리스트 — TOP N</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#111; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .slide {
+    background: #FAF7F2;
+    color: #2E2A22;
+    padding: 96px 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7E68; }
+  .top .tag { color: #C4461F; }
+  h2 { font-family: var(--font-sans); font-weight: 800; font-size: 64px; line-height: 1.08; letter-spacing: -0.03em; margin: 0; }
+  h2 em { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-style: normal; color: #C4461F; }
+  .stack { display:flex; flex-direction: column; gap: 20px; }
+  .item { background: #fff; border-radius: 20px; padding: 28px 32px; display: flex; gap: 28px; align-items: flex-start; box-shadow: 0 1px 2px rgba(46,42,34,0.05), 0 8px 24px rgba(46,42,34,0.06); }
+  .num { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 72px; line-height: 0.9; color: #C4461F; letter-spacing: -0.04em; min-width: 72px; }
+  .item h3 { font-family: var(--font-sans); font-weight: 700; font-size: 34px; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .item p { font-family: var(--font-sans); font-size: 22px; line-height: 1.5; margin: 0; color: #6B6150; }
+  .item .tag { font-family: var(--font-mono); font-size: 14px; color: #8A7E68; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 10px; display: inline-block; }
+  .footer { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 18px; color: #8A7E68; letter-spacing: 0.08em; margin-top: auto; }
+</style></head>
+<body>
+<div class="slide" data-screen-label="03 List TOP N">
+  <div class="top">
+    <span>DEV · <span class="tag">D3</span></span>
+    <span>5 / 8</span>
+  </div>
+  <h2>매일 쓰는<br/>AI 도구 <em>5가지</em></h2>
+  <div class="stack">
+    <div class="item">
+      <div class="num">01</div>
+      <div>
+        <h3>Cursor</h3>
+        <p>혼자 새벽에 구현할 때 제일 든든한 파트너예요.</p>
+        <span class="tag">★★★★★ · CODE</span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="num">02</div>
+      <div>
+        <h3>Claude Code</h3>
+        <p>리팩토링/디버깅은 여기. 맥락 잡아주는 게 달라요.</p>
+        <span class="tag">★★★★★ · REFACTOR</span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="num">03</div>
+      <div>
+        <h3>ChatGPT</h3>
+        <p>문서 초안, 카피 다듬기 — 텍스트 작업용.</p>
+        <span class="tag">★★★★☆ · WRITE</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>@codemom.life</span>
+    <span>SWIPE →</span>
+  </div>
+</div>
+</body></html>

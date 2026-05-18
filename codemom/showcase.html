@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>@codemom.life — Making of</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--life-bg);
+    color: var(--life-fg);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Layout ===== */
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 120px 48px 160px; }
+  section { margin-bottom: 140px; }
+  section:last-child { margin-bottom: 0; }
+
+  /* ===== Type ===== */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--life-fg-subtle);
+    margin: 0 0 20px;
+  }
+  h1.hero {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(56px, 8vw, 96px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin: 0 0 32px;
+  }
+  h1.hero em {
+    font-family: 'Space Grotesk', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--life-accent);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 12px;
+  }
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 48px 0 16px;
+  }
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    margin: 32px 0 8px;
+  }
+  p { margin: 0 0 16px; max-width: 70ch; }
+  .lead { font-size: 22px; line-height: 1.5; max-width: 60ch; color: var(--life-fg-muted); }
+  a { color: var(--life-accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+  strong { font-weight: 700; }
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--life-surface);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* ===== Hero ===== */
+  .hero-block {
+    border-top: 1px solid var(--life-line);
+    padding-top: 32px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--life-fg-subtle);
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--life-line);
+  }
+  .hero-meta span b {
+    display: block;
+    color: var(--life-fg);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    margin-top: 4px;
+  }
+
+  /* ===== Section header ===== */
+  .sec-head {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 32px;
+    align-items: baseline;
+    margin-bottom: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--life-line);
+  }
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--life-accent);
+  }
+  .sec-head-body p { margin-top: 12px; }
+
+  /* ===== Prompt card ===== */
+  .prompt {
+    background: var(--tech-bg);
+    color: var(--tech-fg);
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.65;
+    position: relative;
+    overflow: hidden;
+  }
+  .prompt::before {
+    content: 'PROMPT';
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--tech-accent);
+    font-weight: 700;
+  }
+  .prompt.user::before { content: 'USER'; }
+  .prompt.feedback::before { content: 'FEEDBACK'; color: var(--tech-err); }
+  .prompt p { color: var(--tech-fg); max-width: none; margin: 0 0 8px; }
+  .prompt p:last-child { margin-bottom: 0; }
+  .prompt .caret { color: var(--tech-accent-2); margin-right: 8px; }
+
+  /* ===== Feedback chain ===== */
+  .chain {
+    display: grid;
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .chain-row {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .chain-row .before, .chain-row .after {
+    background: var(--life-surface);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .chain-row .after {
+    background: var(--life-highlight);
+    color: var(--life-fg);
+  }
+  .chain-row .arr {
+    font-family: var(--font-mono);
+    color: var(--life-accent);
+    text-align: center;
+    font-size: 20px;
+  }
+  .chain-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--life-fg-subtle);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* ===== Embed gallery ===== */
+  .gallery {
+    display: grid;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .gallery.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .gallery.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .gallery.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .slide-frame {
+    position: relative;
+    background: var(--life-surface);
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1080 / 1350;
+  }
+  .slide-frame iframe {
+    width: 1080px;
+    height: 1350px;
+    border: 0;
+    transform-origin: top left;
+    display: block;
+  }
+  .slide-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--life-fg);
+    background: rgba(250, 247, 242, 0.92);
+    padding: 6px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .slide-label b { color: var(--life-fg); font-weight: 700; }
+  .slide-label span { color: var(--life-fg-subtle); }
+
+  .preview-frame {
+    position: relative;
+    background: var(--life-surface);
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+  .preview-frame iframe {
+    border: 0;
+    transform-origin: top left;
+    display: block;
+  }
+
+  /* ===== Rule list ===== */
+  .rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 24px;
+  }
+  .rules h4 {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  .rules ul { margin: 0; padding-left: 20px; }
+  .rules li { margin-bottom: 6px; font-size: 15px; }
+  .rules .no h4 { color: var(--tech-err); }
+  .rules .yes h4 { color: var(--life-ok); }
+
+  /* ===== Stats row ===== */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 48px 0;
+    padding: 32px 0;
+    border-top: 1px solid var(--life-line);
+    border-bottom: 1px solid var(--life-line);
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--life-fg);
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--life-fg-subtle);
+    margin-top: 8px;
+  }
+
+  /* ===== Type specimen ===== */
+  .type-spec {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--life-line);
+    align-items: baseline;
+  }
+  .type-spec:last-child { border-bottom: 0; }
+  .type-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--life-fg-subtle);
+  }
+  .type-meta b {
+    display: block;
+    color: var(--life-fg);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    margin-top: 4px;
+  }
+  .type-sample-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+  .type-sample-h1 {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+  .type-sample-body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .type-sample-mono {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--life-fg-muted);
+  }
+
+  /* ===== Color swatches ===== */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .swatch {
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .swatch .name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+  .swatch .hex { text-transform: uppercase; }
+  .swatch.dark { color: var(--life-bg); }
+  .swatch.dark .name { color: var(--life-bg); }
+  .swatch.light { color: var(--life-fg); }
+  .swatch .role {
+    display: block;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 2px;
+    letter-spacing: 0.1em;
+    font-size: 10px;
+  }
+
+  /* ===== Final carousel strip ===== */
+  .carousel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    border-top: 1px solid var(--life-line);
+    padding-top: 40px;
+    margin-top: 100px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--life-fg-subtle);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ===== Takeaway cards ===== */
+  .takeaways {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .takeaway {
+    background: var(--life-surface);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .takeaway .n {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--life-accent);
+    margin-bottom: 12px;
+  }
+  .takeaway h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 10px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .takeaway p {
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--life-fg-muted);
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .wrap { padding: 80px 24px 120px; }
+    .sec-head { grid-template-columns: 1fr; gap: 8px; }
+    .rules, .takeaways, .stats { grid-template-columns: 1fr; gap: 16px; }
+    .stats { padding: 20px 0; }
+    .gallery.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .gallery.cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .swatches { grid-template-columns: repeat(2, 1fr); }
+    .carousel { grid-template-columns: repeat(2, 1fr); }
+    .type-spec { grid-template-columns: 1fr; gap: 8px; }
+    .chain-row { grid-template-columns: 1fr; }
+    .chain-row .arr { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-block">
+    <p class="eyebrow">Making of / 2026.04.22</p>
+    <h1 class="hero">0에서 디자인 시스템까지,<br><em>1시간</em>의 기록.</h1>
+    <p class="lead">
+      @codemom.life 인스타 계정의 카드뉴스 템플릿을 Claude와 함께
+      한 시간 만에 만든 과정. 실제 주고받은 프롬프트와 최종 결과물을
+      한 페이지에 담았습니다.
+    </p>
+
+    <div class="hero-meta">
+      <span>Account<b>@codemom.life</b></span>
+      <span>Format<b>1080 × 1350 캐러셀</b></span>
+      <span>Tool<b>Claude Design → Claude Code 스킬</b></span>
+      <span>Output<b>템플릿 12 · 포스트 01</b></span>
+    </div>
+  </section>
+
+  <!-- ===== PHASE 1 — 방향 질문 ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">01 / 방향</div>
+      <div class="sec-head-body">
+        <h2>한 줄 설명으로 시작하기</h2>
+        <p class="lead">보유한 에셋이 하나도 없었어요. 로고도, 폰트도, 컬러도. "이런 계정을 운영하려는데"라는 한 줄에서 출발했습니다.</p>
+      </div>
+    </div>
+
+    <div class="prompt user">
+      <p><span class="caret">&gt;</span> @codemom.life 라는 인스타 계정의 카드뉴스 디자인 시스템을 만들고 싶어.</p>
+      <p><span class="caret">&gt;</span> 9년차 개발자인데 지금 육아휴직 중이야. 개발/AI/일상/내가 만드는 앱 이렇게 4개 축으로 컨텐츠 올릴거야.</p>
+    </div>
+
+    <p>Claude가 10개 넘는 질문을 돌려줬고, 그중 결정적이었던 답:</p>
+
+    <div class="chain">
+      <div class="chain-row">
+        <div class="before"><span class="chain-tag">Q · Vibe</span>모던 테크 / 따뜻한 감성 / 에디토리얼 중 어느 쪽?</div>
+        <div class="arr">→</div>
+        <div class="after"><span class="chain-tag">A</span><b>두 톤을 섞고 싶음.</b> 개발 얘기는 테크하게, 일상은 따뜻하게.</div>
+      </div>
+      <div class="chain-row">
+        <div class="before"><span class="chain-tag">Q · 팔레트</span>어떤 색 방향?</div>
+        <div class="arr">→</div>
+        <div class="after"><span class="chain-tag">A</span><code>Decide for me</code></div>
+      </div>
+    </div>
+
+    <p>이 "두 톤 섞기"라는 요청이 나중에 <strong>Dual-Theme 시스템</strong>으로 이어졌어요.</p>
+  </section>
+
+  <!-- ===== PHASE 2 — Dual Theme ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">02 / 시스템</div>
+      <div class="sec-head-body">
+        <h2>Dual-Theme라는 뼈대.</h2>
+        <p class="lead">
+          타이포·그리드·로고는 공유하고, <strong>배경 모드만</strong> 바뀌는 구조.
+          컨텐츠 축에 따라 LIFE(크림)와 TECH(다크)가 오가되, 공유 뉴트럴 <code>#2E2A22</code>가
+          둘을 하나의 계정처럼 묶어줍니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="swatch light" style="background:#FAF7F2; border:1px solid var(--life-line);">
+        <div><span class="name">Cream</span><span class="role">LIFE · bg</span></div>
+        <div class="hex">#FAF7F2</div>
+      </div>
+      <div class="swatch dark" style="background:#0E0D0A;">
+        <div><span class="name">Deep Black</span><span class="role">TECH · bg</span></div>
+        <div class="hex">#0E0D0A</div>
+      </div>
+      <div class="swatch dark" style="background:#2E2A22;">
+        <div><span class="name">Warm Black</span><span class="role">shared · ink</span></div>
+        <div class="hex">#2E2A22</div>
+      </div>
+      <div class="swatch light" style="background:#C4461F; color:#FAF7F2;">
+        <div><span class="name" style="color:#FAF7F2;">Terracotta</span><span class="role">LIFE · accent</span></div>
+        <div class="hex">#C4461F</div>
+      </div>
+    </div>
+
+    <h3>Type system</h3>
+    <p>세리프와 이태릭을 전부 걷어내고 세 가지로 정리했어요. 대비는 크기와 굵기로만.</p>
+
+    <div class="type-spec">
+      <div class="type-meta">Display<b>Space Grotesk 700</b>-0.03em</div>
+      <div class="type-sample-display">잔잔한 하루를<br>기록합니다.</div>
+    </div>
+    <div class="type-spec">
+      <div class="type-meta">Heading<b>Pretendard 800</b>-0.025em</div>
+      <div class="type-sample-h1">육아휴직 중인<br>9년차 개발자가 만든 앱</div>
+    </div>
+    <div class="type-spec">
+      <div class="type-meta">Body<b>Pretendard 400</b>1.5 line-height</div>
+      <div class="type-sample-body">편집영상 90%는 어차피 자막·컷·음악이잖아요. 그걸 자동화한 앱을 만들었어요. 개발자니까요.</div>
+    </div>
+    <div class="type-spec">
+      <div class="type-meta">Label<b>JetBrains Mono 500</b>0.08em · UPPER</div>
+      <div class="type-sample-mono">CODEMOM.LIFE · POST 01 / 08</div>
+    </div>
+  </section>
+
+  <!-- ===== PHASE 2b — Preview embeds ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">03 / 시스템 프리뷰</div>
+      <div class="sec-head-body">
+        <h2>실제로 살펴보기.</h2>
+        <p class="lead">디자인 시스템 카드 18장 중 핵심 6장. 각 카드는 실제 토큰 값 그대로 렌더링됩니다.</p>
+      </div>
+    </div>
+
+    <div class="gallery cols-3">
+      <div class="preview-frame" data-scale="0.33"><iframe src="preview/type-display.html" scrolling="no"></iframe></div>
+      <div class="preview-frame" data-scale="0.33"><iframe src="preview/colors-life.html" scrolling="no"></iframe></div>
+      <div class="preview-frame" data-scale="0.33"><iframe src="preview/colors-tech.html" scrolling="no"></iframe></div>
+      <div class="preview-frame" data-scale="0.33"><iframe src="preview/brand-logo.html" scrolling="no"></iframe></div>
+      <div class="preview-frame" data-scale="0.33"><iframe src="preview/components-cards.html" scrolling="no"></iframe></div>
+      <div class="preview-frame" data-scale="0.33"><iframe src="preview/spacing-scale.html" scrolling="no"></iframe></div>
+    </div>
+  </section>
+
+  <!-- ===== PHASE 3 — Feedback loop ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">04 / 피드백 루프</div>
+      <div class="sec-head-body">
+        <h2>톤은 한 번에 안 잡힙니다.</h2>
+        <p class="lead">
+          Claude가 처음 시안을 낼 때 자연스럽게 섞어오는 표현들 —
+          <code>ㅋㅋ</code>, <code>PLOT TWIST</code>, 이모지, 감정 유도 도형,
+          한국어 독음 병기 — 을 하나씩 거부해나간 기록.
+        </p>
+      </div>
+    </div>
+
+    <h3>Before → After</h3>
+
+    <div class="chain">
+      <div class="chain-row">
+        <div class="before"><span class="chain-tag">Before · slide 04</span>저요 ㅋㅋ</div>
+        <div class="arr">→</div>
+        <div class="after"><span class="chain-tag">After</span>… 저요.</div>
+      </div>
+      <div class="chain-row">
+        <div class="before"><span class="chain-tag">Before · slide 05</span>⚡ PLOT TWIST · 반전! · (기울어진 말풍선)</div>
+        <div class="arr">→</div>
+        <div class="after"><span class="chain-tag">After</span>— 그런데 + 큰 문장 하나</div>
+      </div>
+      <div class="chain-row">
+        <div class="before"><span class="chain-tag">Before · slide 06</span>JANJAN (잔잔) — A diary app</div>
+        <div class="arr">→</div>
+        <div class="after"><span class="chain-tag">After</span>잔잔 · A diary for the quiet days.</div>
+      </div>
+      <div class="chain-row">
+        <div class="before"><span class="chain-tag">Before · slide 02</span>Space Grotesk Hero + Fraunces italic 부제</div>
+        <div class="arr">→</div>
+        <div class="after"><span class="chain-tag">After</span>Space Grotesk 단일 — 세리프·이태릭 전부 제거</div>
+      </div>
+    </div>
+
+    <h3>피드백 프롬프트 예시</h3>
+
+    <div class="prompt feedback">
+      <p><span class="caret">!</span> 디자인 톤과 텍스트 톤이 안 맞아요. 구어체 자음(ㅋㅋ 등) 빼고 전체적으로 톤을 통일해주세요.</p>
+    </div>
+
+    <div class="prompt feedback">
+      <p><span class="caret">!</span> 사용자가 늘라기를 바라는 지점을 레이블이나 문구로 직접 선언하지 말고, 구조와 카피로 느껴지게 해주세요. 이모지와 감정 유도 도형도 제거해주세요.</p>
+    </div>
+
+    <div class="prompt feedback">
+      <p><span class="caret">!</span> 고유명사는 독음을 괄호로 병기하지 말고, 그 단어가 담고 있는 의미를 카피로 풀어서 보여주세요.</p>
+    </div>
+
+    <h3>피드백 → 규칙화</h3>
+    <p>거부했던 표현들을 모아서 <code>TONE_GUIDE.md</code>를 만들었어요. 이후 포스트는 초안부터 톤이 맞게 나옵니다.</p>
+
+    <div class="rules">
+      <div class="no">
+        <h4>× 금지</h4>
+        <ul>
+          <li>ㅋㅋ / ㄷㄷ / ㅎㅎ</li>
+          <li>이모지 (✨ 🎉 ⚡ 등)</li>
+          <li>자기선언 라벨 (PLOT TWIST, 반전!)</li>
+          <li>한국어 독음 병기 (JANJAN "잔잔")</li>
+          <li>느낌표 남발</li>
+          <li>감정 유도 도형 (기울어진 말풍선)</li>
+        </ul>
+      </div>
+      <div class="yes">
+        <h4>○ 권장</h4>
+        <ul>
+          <li>담담한 자조 ("… 저요.")</li>
+          <li>에디토리얼 캡션 (— 그런데)</li>
+          <li>의미를 카피로 풀기</li>
+          <li>취소선 + 대체어 (<code>~~흘려보내던~~ 기록</code>)</li>
+          <li>존댓말 캐주얼 (~했어요)</li>
+          <li>한 문장에 한 생각</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHASE 4 — 최종 포스트 ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">05 / 결과물</div>
+      <div class="sec-head-body">
+        <h2>Post 01 · CapCut.</h2>
+        <p class="lead">
+          디자인 시스템 위에서 처음 찍어낸 포스트 8장.
+          기획서의 원래 팔레트(라벤더/민트)는 버리고 Dual-Theme으로 재매핑했어요.
+          시리즈 일관성 &gt; 개별 포스트 취향.
+        </p>
+      </div>
+    </div>
+
+    <div class="gallery cols-4">
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/01-cover.html" scrolling="no"></iframe><div class="slide-label"><b>01</b><span>Cover</span></div></div>
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/02-setup.html" scrolling="no"></iframe><div class="slide-label"><b>02</b><span>Setup</span></div></div>
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/03-reality.html" scrolling="no"></iframe><div class="slide-label"><b>03</b><span>Reality</span></div></div>
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/04-problem.html" scrolling="no"></iframe><div class="slide-label"><b>04</b><span>Problem</span></div></div>
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/05-twist.html" scrolling="no"></iframe><div class="slide-label"><b>05</b><span>Twist</span></div></div>
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/06-app.html" scrolling="no"></iframe><div class="slide-label"><b>06</b><span>App</span></div></div>
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/07-howto.html" scrolling="no"></iframe><div class="slide-label"><b>07</b><span>How-to</span></div></div>
+      <div class="slide-frame"><iframe src="posts/post-01-capcut/08-cta.html" scrolling="no"></iframe><div class="slide-label"><b>08</b><span>CTA</span></div></div>
+    </div>
+
+    <h3>인스타 피드에서 보기</h3>
+    <p>실제 피드에 올라갔을 때의 모형. 그리드 상단 3개가 같은 포스트의 커버 · 후킹 · 반전 슬라이드로 세트가 됩니다.</p>
+
+    <div class="preview-frame" style="aspect-ratio: 4/3;" data-scale="fit">
+      <iframe src="ui_kits/instagram/index.html" scrolling="no"></iframe>
+    </div>
+  </section>
+
+  <!-- ===== PHASE 5 — Handoff ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">06 / 핸드오프</div>
+      <div class="sec-head-body">
+        <h2>Claude Code로 확장.</h2>
+        <p class="lead">
+          포스트 한 개 만들고 나니, 이걸 매번 수동으로 하긴 아깝더라고요.
+          기획 · 제작을 두 개 스킬로 분리해서 로컬 <code>claude code</code>에서
+          돌릴 수 있게 패키지로 만들었어요.
+        </p>
+      </div>
+    </div>
+
+    <div class="prompt user">
+      <p><span class="caret">&gt;</span> 이 프로젝트를 클로드 코드 스킬로 만들어서 일관성 있게 포스팅 찍어내고 싶어.</p>
+      <p><span class="caret">&gt;</span> 기획 스킬 → 에셋 요청 → 사용자 승인 → 슬라이드 제작 스킬 PNG/MOV 제작 흐름으로.</p></p>
+    </div>
+
+    <div class="takeaways">
+      <div class="takeaway">
+        <div class="n">01</div>
+        <h4>content-planning</h4>
+        <p>아이디어 입력 → 훅 후보 → 8슬라이드 구성 → 에셋 요청 → <code>plan.md</code>로 저장. 승인 전까지 제작 시작 안 함.</p>
+      </div>
+      <div class="takeaway">
+        <div class="n">02</div>
+        <h4>slide-production</h4>
+        <p><code>status: approved</code> 확인 → HTML 8장 생성 → Puppeteer PNG 익스포트 → (옵션) MOV 릴스.</p>
+      </div>
+      <div class="takeaway">
+        <div class="n">03</div>
+        <h4>CLAUDE.md</h4>
+        <p>프로젝트 진입점. 언제 어느 스킬을 부를지, 톤 규칙은 뭔지 Claude에게 매번 알려줌.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Takeaways ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">07 / 배운 것</div>
+      <div class="sec-head-body">
+        <h2>다음에 또 할 때를 위한 메모.</h2>
+      </div>
+    </div>
+
+    <div class="takeaways">
+      <div class="takeaway">
+        <div class="n">01</div>
+        <h4>"Decide for me"는 위험한 동시에 좋다.</h4>
+        <p>방향을 맡기면 Claude가 과감한 구조(Dual-Theme)를 제안해요. 다만 반드시 돌려서 피드백 루프를 돌려야 합니다.</p>
+      </div>
+      <div class="takeaway">
+        <div class="n">02</div>
+        <h4>거부한 것들을 규칙으로 남기세요.</h4>
+        <p>ㅋㅋ / 이모지 / PLOT TWIST 같은 것들. 한 번 거부하고 끝이 아니라 문서로 박아두면 다음 포스트 초안부터 맞게 나옵니다.</p>
+      </div>
+      <div class="takeaway">
+        <div class="n">03</div>
+<h4>처음에 제대로 잡으면 나중이 빨라집니다.</h4>
+        <p>한 시간을 디자인 시스템에 썼더니, 이후 포스트는 한 줄로 시작해도 톤이 안 깨져요. 스킬화까지 하면 무한 확장.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>@codemom.life · Making of</span>
+    <span>2026.04.22</span>
+    <span><a href="MAKING_OF.md">→ MAKING_OF.md</a></span>
+  </footer>
+
+</main>
+
+<script>
+  // Slide frames — known 1080×1350.
+  function fitSlides() {
+    document.querySelectorAll('.slide-frame').forEach(el => {
+      const iframe = el.querySelector('iframe');
+      if (!iframe) return;
+      const w = el.clientWidth;
+      const scale = w / 1080;
+      iframe.style.transform = 'scale(' + scale + ')';
+      iframe.style.width = '1080px';
+      iframe.style.height = '1350px';
+      el.style.height = (1350 * scale) + 'px';
+      el.style.aspectRatio = 'auto';
+    });
+  }
+
+  // Preview frames — measure actual content size.
+  function fitPreview(el) {
+    const iframe = el.querySelector('iframe');
+    if (!iframe || !iframe.contentDocument) return;
+    const body = iframe.contentDocument.body;
+    if (!body) return;
+    // Find the largest rendered element to get true content bounds.
+    const card = body.querySelector('.card') || body;
+    const srcW = Math.max(card.scrollWidth, body.scrollWidth, 700);
+    const srcH = Math.max(card.scrollHeight, body.scrollHeight, 200);
+    const w = el.clientWidth;
+    const scale = w / srcW;
+    iframe.style.transform = 'scale(' + scale + ')';
+    iframe.style.transformOrigin = 'top left';
+    iframe.style.width = srcW + 'px';
+    iframe.style.height = srcH + 'px';
+    el.style.height = (srcH * scale) + 'px';
+    el.style.aspectRatio = 'auto';
+  }
+
+  function fitAllPreviews() {
+    document.querySelectorAll('.preview-frame').forEach(el => {
+      const iframe = el.querySelector('iframe');
+      if (!iframe) return;
+      if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+        fitPreview(el);
+      }
+      iframe.addEventListener('load', () => fitPreview(el));
+    });
+  }
+
+  window.addEventListener('load', () => {
+    fitSlides();
+    fitAllPreviews();
+    // Re-fit after fonts load (sizes shift).
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => { fitSlides(); fitAllPreviews(); });
+    }
+    setTimeout(() => { fitSlides(); fitAllPreviews(); }, 600);
+  });
+  window.addEventListener('resize', () => { fitSlides(); fitAllPreviews(); });
+</script>
+
+</body>
+</html>

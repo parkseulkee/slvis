@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  .card { width: 700px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .demo { border-radius: 14px; padding: 26px 28px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; }
+  .hdr { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
+  .tt { font-family: var(--font-sans); font-weight: 800; font-size: 26px; line-height: 1.1; letter-spacing: -0.02em; }
+  .sub { font-family: var(--font-sans); font-size: 12px; opacity: 0.7; }
+
+  .life-demo { background: #F2ECE0; color: #2E2A22; }
+  .life-demo .acc { color: #C4461F; }
+  .tech-demo { background: #17150F; color: #F2ECE0; box-shadow: inset 0 0 0 1px #22201A; }
+  .tech-demo .acc { color: #E8B960; }
+</style></head>
+<body>
+<div class="card">
+  <div class="pair">
+    <div class="demo life-demo">
+      <div class="hdr">LIFE · 03</div>
+      <div>
+        <div class="tt">아기 재우고<br/>나서야 <span class="acc">하루</span></div>
+      </div>
+      <div class="sub">@codemom.life</div>
+    </div>
+    <div class="demo tech-demo">
+      <div class="hdr" style="color:#E8B960;">TECH · A2</div>
+      <div>
+        <div class="tt">ChatGPT <span class="acc">vs</span><br/>Claude 용도별</div>
+      </div>
+      <div class="sub" style="font-family:var(--font-mono);">$ @codemom.life</div>
+    </div>
+  </div>
+</div>
+</body></html>

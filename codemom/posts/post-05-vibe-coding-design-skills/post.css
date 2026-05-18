@@ -1,0 +1,146 @@
+/* Post 05 — Vibe coding design skills (brainstorming × explore-plan-code) — shared tokens
+   9장 전부 TECH 모드. 악센트: 앰버 #E8B960 단일. */
+@import url("../../colors_and_type.css");
+
+:root {
+  --pg-dark: #0e0d0a;
+  --pg-dark-surface: #17150f;
+  --pg-dark-surface-2: #22201a;
+  --pg-dark-fg: #f2ece0;
+  --pg-dark-fg-muted: #a89c82;
+  --pg-dark-fg-subtle: #6b6150;
+  --pg-amber: #e8b960; /* primary accent */
+  --pg-green: #7fb069; /* terminal prompt / 승인 OK */
+  --pg-coral: #e07856; /* before side / 실수 */
+  --pg-line: #2e2a22;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.slide {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background: var(--pg-dark);
+  color: var(--pg-dark-fg);
+}
+
+/* Amber grid baseline for TECH slides (global) */
+.slide .grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(232, 185, 96, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 185, 96, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Top mono label bar */
+.top {
+  position: absolute;
+  top: 64px;
+  left: 72px;
+  right: 72px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pg-dark-fg-muted);
+}
+.top .tag {
+  color: var(--pg-amber);
+  margin: 0 2px;
+}
+
+/* Footer — brand + page counter */
+.foot {
+  position: absolute;
+  bottom: 56px;
+  left: 72px;
+  right: 72px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--pg-dark-fg-subtle);
+  letter-spacing: 0.08em;
+}
+.foot .page {
+  color: var(--pg-amber);
+}
+.foot .swipe {
+  color: var(--pg-amber);
+}
+.foot .sep {
+  color: #3a342a;
+  margin: 0 12px;
+}
+
+/* Mono inline code chip — for skill names */
+.chip {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  color: var(--pg-amber);
+  background: rgba(232, 185, 96, 0.1);
+  padding: 2px 12px;
+  border-radius: 8px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.chip.sm {
+  font-size: 0.85em;
+  padding: 1px 8px;
+}
+
+/* Amber highlight — key words inside Pretendard text */
+.hl {
+  color: var(--pg-amber);
+}
+.hl-bg {
+  background: rgba(232, 185, 96, 0.12);
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+/* Terminal prompt — used on cover */
+.prompt {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--pg-green);
+  letter-spacing: 0.04em;
+}
+.prompt .cursor {
+  display: inline-block;
+  width: 14px;
+  height: 22px;
+  background: var(--pg-amber);
+  vertical-align: -3px;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

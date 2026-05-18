@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  .card { width: 700px; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .ph {
+    aspect-ratio: 4/5;
+    background: repeating-linear-gradient(-45deg, #E8DFCA 0 10px, #DCD1B8 10px 20px);
+    border-radius: 14px;
+    position: relative;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #8A7E68;
+    letter-spacing: 0.1em;
+  }
+  .ph::before { content: ""; position: absolute; inset: 12px; border: 1px dashed #8A7E68; border-radius: 10px; opacity: 0.5; }
+  .ph .cap { position: absolute; bottom: 14px; left: 14px; font-family: var(--font-mono); font-size: 10px; color: #6B6150; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(250,247,242,0.9); padding: 3px 8px; border-radius: 4px; }
+  .polaroid { background: #fff; padding: 10px 10px 40px 10px; box-shadow: 0 2px 8px rgba(46,42,34,0.08); transform: rotate(-1.5deg); }
+  .polaroid .ph { border-radius: 2px; }
+  .polaroid .hand { position: absolute; bottom: -30px; left: 12px; right: 12px; font-family: 'Pretendard Variable', sans-serif; font-size: 14px; color: #6B6150; text-align: center;  }
+</style></head>
+<body>
+<div class="card">
+  <div class="ph">
+    <span>PHOTO · 4:5</span>
+    <div class="cap">새벽 2시 / 책상</div>
+  </div>
+  <div class="polaroid">
+    <div class="ph" style="aspect-ratio: 1/1;"><span>PHOTO · 1:1</span></div>
+    <div class="hand">오늘도 수고했어요</div>
+  </div>
+</div>
+</body></html>

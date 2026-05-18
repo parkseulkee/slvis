@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>05 · 템플릿 12종</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        background: #faf7f2;
+        color: #2e2a22;
+        padding: 80px 72px 110px;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(46, 42, 34, 0.04) 1px,
+          transparent 1px
+        );
+        background-size: 4px 4px;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8a7e68;
+        position: relative;
+      }
+      .top .tag {
+        color: #c4461f;
+      }
+
+      h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 1.02;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: #2e2a22;
+        position: relative;
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      h2 em {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: #c4461f;
+      }
+      h2 .count-badge {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 32px;
+        color: #c4461f;
+        background: #f4e4c1;
+        padding: 6px 14px;
+        border-radius: 999px;
+        letter-spacing: -0.01em;
+        line-height: 1;
+      }
+      h2 .sub {
+        display: block;
+        flex-basis: 100%;
+        margin-top: 14px;
+        font-family: var(--font-mono);
+        font-size: 22px;
+        font-weight: 500;
+        color: #8a7e68;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 18px;
+        position: relative;
+        flex: 1;
+      }
+      .cell {
+        background: #fff;
+        border: 1px solid #e8dfca;
+        border-radius: 18px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow:
+          0 1px 2px rgba(46, 42, 34, 0.04),
+          0 6px 20px rgba(46, 42, 34, 0.05);
+        position: relative;
+      }
+      .cell .thumb {
+        flex: 1;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #e8dfca;
+        min-height: 0;
+      }
+      .cell.tech .thumb {
+        border-bottom-color: #22201a;
+      }
+      .cell .meta {
+        padding: 14px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        color: #6b6150;
+        background: #fff;
+      }
+      .cell .meta b {
+        color: #2e2a22;
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: 0.02em;
+      }
+      .cell .meta .mode {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #c4461f;
+      }
+      .cell.tech .meta .mode {
+        color: #8a5a1e;
+      }
+
+      /* Plus-six cell */
+      .cell.plus6 {
+        background: #2e2a22;
+        color: #f2ece0;
+        border-color: #2e2a22;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .cell.plus6 .mark {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 88px;
+        color: #e8b960;
+        letter-spacing: -0.04em;
+        line-height: 0.9;
+      }
+      .cell.plus6 .label {
+        font-family: var(--font-mono);
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #a89c82;
+        margin-top: 8px;
+      }
+
+      .foot {
+        position: absolute;
+        bottom: 44px;
+        left: 72px;
+        right: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        color: #8a7e68;
+        letter-spacing: 0.08em;
+      }
+      .foot .page {
+        color: #c4461f;
+      }
+      .foot .swipe {
+        color: #c4461f;
+      }
+      .foot .sep {
+        color: #d9cfb8;
+        margin: 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="05 Templates">
+      <div class="top">
+        <span>RESULT <span class="tag">·</span> B</span>
+        <span>TEMPLATES</span>
+      </div>
+
+      <h2>
+        템플릿 <em>12</em>종
+        <span class="sub">한 번 만들면 계속 써요.</span>
+      </h2>
+
+      <div class="grid">
+        <div class="cell">
+          <div
+            class="thumb"
+            style="
+              background-image: url(&quot;assets/template-thumbs/t-01-cover-life.png&quot;);
+            "
+          ></div>
+          <div class="meta">
+            <b>01 · cover-life</b><span class="mode">LIFE</span>
+          </div>
+        </div>
+        <div class="cell tech">
+          <div
+            class="thumb"
+            style="
+              background-image: url(&quot;assets/template-thumbs/t-02-cover-tech.png&quot;);
+            "
+          ></div>
+          <div class="meta">
+            <b>02 · cover-tech</b><span class="mode">TECH</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div
+            class="thumb"
+            style="
+              background-image: url(&quot;assets/template-thumbs/t-04-before-after.png&quot;);
+            "
+          ></div>
+          <div class="meta">
+            <b>04 · before-after</b><span class="mode">LIFE</span>
+          </div>
+        </div>
+        <div class="cell tech">
+          <div
+            class="thumb"
+            style="
+              background-image: url(&quot;assets/template-thumbs/t-05-timeline.png&quot;);
+            "
+          ></div>
+          <div class="meta">
+            <b>05 · timeline</b><span class="mode">TECH</span>
+          </div>
+        </div>
+        <div class="cell tech">
+          <div
+            class="thumb"
+            style="
+              background-image: url(&quot;assets/template-thumbs/t-07-process.png&quot;);
+            "
+          ></div>
+          <div class="meta">
+            <b>07 · process</b><span class="mode">TECH</span>
+          </div>
+        </div>
+        <div class="cell plus6">
+          <div>
+            <div class="mark">+ 6</div>
+            <div class="label">more templates</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span
+          ><span class="page"># 05 / 08</span><span class="sep">·</span
+          ><span class="swipe">SWIPE →</span></span
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>04 · 디자인 토큰</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        background: #faf7f2;
+        color: #2e2a22;
+        padding: 80px 72px 110px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(46, 42, 34, 0.04) 1px,
+          transparent 1px
+        );
+        background-size: 4px 4px;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8a7e68;
+        position: relative;
+      }
+      .top .tag {
+        color: #c4461f;
+      }
+
+      h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        margin: 0;
+        color: #2e2a22;
+        position: relative;
+      }
+      h2 em {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: #c4461f;
+      }
+      h2 .subtle {
+        display: block;
+        margin-top: 12px;
+        font-family: var(--font-mono);
+        font-size: 22px;
+        color: #8a7e68;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        position: relative;
+      }
+      .row {
+        background: #fff;
+        border: 1px solid #e8dfca;
+        border-radius: 22px;
+        padding: 26px 30px;
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        gap: 24px;
+        align-items: center;
+        box-shadow:
+          0 1px 2px rgba(46, 42, 34, 0.04),
+          0 6px 20px rgba(46, 42, 34, 0.05);
+      }
+      .row .n {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 0.95;
+        color: #c4461f;
+        letter-spacing: -0.04em;
+      }
+      .row .body h3 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 34px;
+        margin: 0 0 12px;
+        letter-spacing: -0.025em;
+        color: #2e2a22;
+      }
+      .row .body h3 .tag {
+        font-family: var(--font-mono);
+        font-size: 14px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8a7e68;
+        margin-left: 12px;
+        font-weight: 500;
+        vertical-align: middle;
+      }
+
+      /* Palette dots */
+      .swatches {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        color: #6b6150;
+        letter-spacing: 0.02em;
+      }
+      .swatches .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #faf7f2;
+        padding: 6px 12px 6px 8px;
+        border-radius: 999px;
+        border: 1px solid #e8dfca;
+      }
+      .swatches .dot {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid rgba(46, 42, 34, 0.15);
+      }
+      .swatches .hex {
+        font-size: 16px;
+        letter-spacing: 0.06em;
+        color: #2e2a22;
+      }
+      .swatches .label {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #8a7e68;
+        margin-right: 4px;
+      }
+
+      /* Type specimens */
+      .types {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .type-row {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        align-items: baseline;
+        gap: 20px;
+      }
+      .type-row .meta {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8a7e68;
+      }
+      .type-row .sample-display {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: -0.02em;
+        color: #2e2a22;
+        line-height: 1.1;
+      }
+      .type-row .sample-sans {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 26px;
+        letter-spacing: -0.02em;
+        color: #2e2a22;
+        line-height: 1.2;
+      }
+      .type-row .sample-mono {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+        color: #2e2a22;
+      }
+
+      /* Grid visual */
+      .grid-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 24px;
+      }
+      .grid-visual {
+        position: relative;
+        width: 150px;
+        height: 94px; /* 1080:1350 ≈ 4:5 → 120x150 scaled */
+        background: #faf7f2;
+        border: 1px solid #d9cfb8;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+      .grid-visual::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 1px dashed rgba(196, 70, 31, 0.5);
+        border-radius: 3px;
+      }
+      .grid-visual::after {
+        content: "72 · 96";
+        position: absolute;
+        bottom: 4px;
+        right: 6px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        color: #8a7e68;
+      }
+      .grid-specs {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-family: var(--font-mono);
+        font-size: 17px;
+        color: #6b6150;
+        letter-spacing: 0.03em;
+      }
+      .grid-specs b {
+        color: #2e2a22;
+        font-weight: 500;
+      }
+      .grid-specs .kv {
+        display: flex;
+        gap: 8px;
+      }
+      .grid-specs .kv .k {
+        color: #8a7e68;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 13px;
+        min-width: 70px;
+      }
+
+      .foot {
+        position: absolute;
+        bottom: 44px;
+        left: 72px;
+        right: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--font-mono);
+        font-size: 18px;
+        color: #8a7e68;
+        letter-spacing: 0.08em;
+      }
+      .foot .page {
+        color: #c4461f;
+      }
+      .foot .swipe {
+        color: #c4461f;
+      }
+      .foot .sep {
+        color: #d9cfb8;
+        margin: 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="04 Tokens">
+      <div class="top">
+        <span>RESULT <span class="tag">·</span> A</span>
+        <span>TOKENS</span>
+      </div>
+
+      <h2>
+        디자인 <em>토큰</em>
+        <span class="subtle">팔레트 · 타입 · 그리드</span>
+      </h2>
+
+      <div class="stack">
+        <!-- Palette -->
+        <div class="row">
+          <div class="n">01</div>
+          <div class="body">
+            <h3>팔레트<span class="tag">5 COLORS</span></h3>
+            <div class="swatches">
+              <span class="chip"
+                ><span class="dot" style="background: #faf7f2"></span
+                ><span class="hex">#FAF7F2</span></span
+              >
+              <span class="chip"
+                ><span class="dot" style="background: #0e0d0a"></span
+                ><span class="hex">#0E0D0A</span></span
+              >
+              <span class="chip"
+                ><span class="dot" style="background: #2e2a22"></span
+                ><span class="hex">#2E2A22</span></span
+              >
+              <span class="chip"
+                ><span class="dot" style="background: #c4461f"></span
+                ><span class="hex">#C4461F</span></span
+              >
+              <span class="chip"
+                ><span class="dot" style="background: #e8b960"></span
+                ><span class="hex">#E8B960</span></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Type -->
+        <div class="row">
+          <div class="n">02</div>
+          <div class="body">
+            <h3>타입<span class="tag">3 FAMILIES</span></h3>
+            <div class="types">
+              <div class="type-row">
+                <span class="meta">DISPLAY</span>
+                <span class="sample-display">Space Grotesk</span>
+              </div>
+              <div class="type-row">
+                <span class="meta">BODY · 한글</span>
+                <span class="sample-sans">Pretendard Variable</span>
+              </div>
+              <div class="type-row">
+                <span class="meta">LABEL · CODE</span>
+                <span class="sample-mono">JetBrains Mono</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="row">
+          <div class="n">03</div>
+          <div class="body">
+            <h3>그리드<span class="tag">1080 × 1350</span></h3>
+            <div class="grid-row">
+              <div class="grid-specs">
+                <div class="kv">
+                  <span class="k">Canvas</span><b>1080 × 1350 px · 4:5</b>
+                </div>
+                <div class="kv">
+                  <span class="k">Padding</span><b>72 H · 96 V</b>
+                </div>
+                <div class="kv">
+                  <span class="k">Safe area</span><b>고정 · 자르기 X</b>
+                </div>
+              </div>
+              <div class="grid-visual"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span
+          ><span class="page"># 04 / 08</span><span class="sep">·</span
+          ><span class="swipe">SWIPE →</span></span
+        >
+      </div>
+    </div>
+  </body>
+</html>

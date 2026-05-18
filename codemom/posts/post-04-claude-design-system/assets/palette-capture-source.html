@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Palette capture source — post-04</title>
+    <link rel="stylesheet" href="../../../colors_and_type.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0e0d0a;
+      }
+      .capture {
+        width: 1080px;
+        padding: 120px 96px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        box-sizing: border-box;
+      }
+      .swatch {
+        aspect-ratio: 1 / 1;
+        border-radius: 28px;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        box-sizing: border-box;
+      }
+      .swatch .name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .swatch .role {
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        opacity: 0.7;
+        margin-top: 4px;
+      }
+      .swatch .hex {
+        text-transform: uppercase;
+        font-size: 15px;
+        letter-spacing: 0.1em;
+      }
+      .swatch.cream {
+        background: #faf7f2;
+        color: #2e2a22;
+        border: 1px solid #d9cfb8;
+      }
+      .swatch.black {
+        background: #0e0d0a;
+        color: #f2ece0;
+        border: 1px solid #22201a;
+      }
+      .swatch.warm {
+        background: #2e2a22;
+        color: #f2ece0;
+      }
+      .swatch.terracotta {
+        background: #c4461f;
+        color: #faf7f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="capture">
+      <div class="swatch cream">
+        <div>
+          <div class="name">Cream</div>
+          <div class="role">LIFE · bg</div>
+        </div>
+        <div class="hex">#FAF7F2</div>
+      </div>
+      <div class="swatch black">
+        <div>
+          <div class="name">Deep Black</div>
+          <div class="role">TECH · bg</div>
+        </div>
+        <div class="hex">#0E0D0A</div>
+      </div>
+      <div class="swatch warm">
+        <div>
+          <div class="name">Warm Black</div>
+          <div class="role">shared · ink</div>
+        </div>
+        <div class="hex">#2E2A22</div>
+      </div>
+      <div class="swatch terracotta">
+        <div>
+          <div class="name">Terracotta</div>
+          <div class="role">LIFE · accent</div>
+        </div>
+        <div class="hex">#C4461F</div>
+      </div>
+    </div>
+  </body>
+</html>

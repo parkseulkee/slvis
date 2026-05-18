@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>01 · Cover — 바이브 코딩은 설계에서 갈려요</title>
+    <link rel="stylesheet" href="post.css" />
+    <style>
+      .slide {
+        padding: 96px 72px;
+      }
+
+      .hero {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 240px;
+        z-index: 5;
+      }
+
+      .prompt-line {
+        font-family: var(--font-mono);
+        font-size: 22px;
+        color: var(--pg-green);
+        letter-spacing: 0.04em;
+        margin-bottom: 40px;
+      }
+      .prompt-line .cursor {
+        display: inline-block;
+        width: 14px;
+        height: 22px;
+        background: var(--pg-amber);
+        vertical-align: -3px;
+        margin-left: 4px;
+        animation: blink 1s infinite;
+      }
+
+      h1 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 104px;
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+        margin: 0;
+        color: var(--pg-dark-fg);
+      }
+      h1 .design {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+        font-size: 90px;
+        color: var(--pg-amber);
+        background: rgba(232, 185, 96, 0.1);
+        padding: 4px 18px;
+        border-radius: 12px;
+        letter-spacing: 0;
+      }
+
+      .subline {
+        margin-top: 48px;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 28px;
+        color: var(--pg-dark-fg-muted);
+        line-height: 1.5;
+      }
+      .subline .em {
+        color: var(--pg-amber);
+        margin-right: 10px;
+      }
+
+      .brand-mark {
+        position: absolute;
+        right: 72px;
+        bottom: 200px;
+        z-index: 5;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        color: rgba(168, 156, 130, 0.45);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide" data-screen-label="01 Cover — 바이브 코딩 · 설계">
+      <div class="grid-bg"></div>
+
+      <div class="top">
+        <span>AI <span class="tag">·</span> 설계 스킬 2개</span>
+        <span>~/codemom</span>
+      </div>
+
+      <div class="hero">
+        <div class="prompt-line">$ vibe-code<span class="cursor"></span></div>
+        <h1>
+          바이브 코딩,<br />
+          결국은 <span class="design">설계</span>에서<br />
+          갈려요
+        </h1>
+        <div class="subline">
+          <span class="em">—</span>실전에서 쓰는 설계 스킬 2개,<br />
+          이 포스트에 담았어요
+        </div>
+      </div>
+
+      <div class="brand-mark">POST · 05</div>
+
+      <div class="foot">
+        <span>@codemom.life</span>
+        <span>
+          <span class="page"># 01 / 08</span>
+          <span class="sep">·</span>
+          <span class="swipe">SWIPE →</span>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

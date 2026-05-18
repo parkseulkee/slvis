@@ -1,0 +1,82 @@
+/* Post 02 — SLVIS /daily (AI axis) — shared tokens */
+@import url("../../colors_and_type.css");
+
+:root {
+  --pg-bg: #0e0d0a;
+  --pg-surface: #17150f;
+  --pg-surface-2: #22201a;
+  --pg-ink: #f2ece0;
+  --pg-ink-muted: #a89c82;
+  --pg-ink-subtle: #6b6150;
+  --pg-line: #2e2a22;
+  --pg-amber: #e8b960;
+  --pg-green: #7fb069;
+  --pg-err: #e07856;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.slide {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background: var(--pg-bg);
+  color: var(--pg-ink);
+}
+
+/* Grid texture (TECH mode signature) */
+.slide.tech::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232, 185, 96, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 185, 96, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top meta row */
+.top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pg-ink-muted);
+}
+.top .tag {
+  color: var(--pg-amber);
+}
+
+/* Footer row */
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--pg-ink-subtle);
+}
+.footer .swipe {
+  color: var(--pg-amber);
+}

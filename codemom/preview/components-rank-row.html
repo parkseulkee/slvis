@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  .card { width: 700px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .row { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; background: #fff; border-radius: 10px; font-family: var(--font-sans); font-size: 14px; color: #2E2A22; box-shadow: inset 0 0 0 1px #E8DFCA; }
+  .row .name { font-weight: 600; }
+  .stars { font-family: var(--font-mono); color: #E8B960; letter-spacing: 2px; }
+  .prog { height: 6px; width: 100px; background: #E8DFCA; border-radius: 999px; overflow: hidden; }
+  .prog i { display: block; height: 100%; background: #C4461F; }
+  .stat { display: flex; gap: 10px; align-items: center; }
+  .tag { font-family: var(--font-mono); font-size: 11px; color: #8A7E68; }
+</style></head>
+<body>
+<div class="card">
+  <div class="row">
+    <div class="stat"><span class="tag">01</span><span class="name">Cursor</span></div>
+    <div class="stars">★★★★★</div>
+  </div>
+  <div class="row">
+    <div class="stat"><span class="tag">02</span><span class="name">Claude Code</span></div>
+    <div class="stars">★★★★☆</div>
+  </div>
+  <div class="row">
+    <div class="stat"><span class="tag">03</span><span class="name">ChatGPT</span></div>
+    <div class="stat"><div class="prog"><i style="width:72%"></i></div><span class="tag">72%</span></div>
+  </div>
+</div>
+</body></html>
